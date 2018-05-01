@@ -65,9 +65,7 @@
                     <p> გვერდის სახელი/სათაური: * </p>
                     <input name="genpage_name_<?php echo $language['keyword']; ?>" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder="*" value="<?php if ($keyword != "") echo $generics[$keyword][$language['id']]['title']; ?>" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
                     <div id="post_genpage_name_<?php echo $language['keyword']; ?>"> </div>
-                    <p> გვერდის ტიპი: </p>
-                    <input name="genpage_type_<?php echo $language['keyword']; ?>" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder=""  value="<?php if ($keyword != "") echo $generics[$keyword][$language['id']]['type']; ?>" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
-                </div>
+                    </div>
 
                 <div style="width: 800px; margin: auto; padding-top: 50px; text-align: center">
                     <p style="text-align: center"> ინტრო: * </p>
@@ -91,9 +89,12 @@
         <?php } ?>
 
         <div style="width: 500px; margin: 50px auto 100px;">
+            <p> გვერდის ტიპი: </p>
+            <input name="genpage_type" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder=""  value="<?php if ($keyword != "") echo $generics[$keyword][$language['id']]['type']; ?>" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
+
             <p> სურათი: </p>
             <input type="file" name="fileToUpload" id="fileToUpload"> </br>
-
+            <input type="checkbox" name="display" value="true"> გამოჩნდეს სლაიდად <br><br>
             <button onclick="document.getElementById('generic-form').submit();" type="submit" class="sub button"
                     name="submit" value="company"> შექმნა </button>
         </div>

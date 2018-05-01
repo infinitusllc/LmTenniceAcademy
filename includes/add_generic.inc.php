@@ -6,6 +6,10 @@ if(isset($_POST['submit'])) {
 
     include "languages.inc.php";
     $isChange = mysqli_real_escape_string($conn, $_POST["change"]);
+    $display = 0;
+    if (isset($_POST['display']) and $_POST['display'] == 'true') {
+        $display = 1;
+    }
 
     $empty = 1;
     foreach ($languages as $language) {
@@ -34,18 +38,18 @@ if(isset($_POST['submit'])) {
         $first = 1;
         $id = -1;
         $genpage_keyword = mysqli_real_escape_string($conn, $_POST["genpage_keyword"]);
+        $type = mysqli_real_escape_string($conn, $_POST["genpage_type"]);
         foreach ($languages as $language) {
             $suffix = $language['keyword'];
             $genpage_name = mysqli_real_escape_string($conn, $_POST["genpage_name_$suffix"]);
             $genpage_intro = mysqli_real_escape_string($conn, $_POST["genpage_intro_$suffix"]);
             $genpage_description = mysqli_real_escape_string($conn, $_POST["genpage_description_$suffix"]);
-            $type = mysqli_real_escape_string($conn, $_POST["genpage_type_$suffix"]);
 
             if (!empty($genpage_name) && !empty($genpage_description)) {
                 $lang_key = $language['id'];
                 if ($first == 1) {
-                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword) VALUES 
-                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword')";
+                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword, show_in_slide) VALUES 
+                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword, $display')";
                     $result = mysqli_query($conn, $sql);
                     $sql = "SELECT id FROM generic_page_content WHERE content = '$genpage_description' ORDER BY id DESC";
                     $result = mysqli_query($conn, $sql);
@@ -54,8 +58,8 @@ if(isset($_POST['submit'])) {
                     $result = mysqli_query($conn, $sql);
                     $first = 0;
                 } else {
-                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword) VALUES 
-                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword')";
+                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword,show_in_slide) VALUES 
+                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword', $display)";
                     mysqli_query($conn, $sql);
                 }
             }
