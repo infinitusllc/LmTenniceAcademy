@@ -130,33 +130,89 @@
 			<div class="clear"></div>
 		</div>
 
-        <div style="width: 100%; border: solid red">
-            <div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
-                <?php
-                $events = getNews($lang_key);
+        <div style="width: 100%">
+            <div style="width: 35%; margin-left: 5%; margin-top:30px; display: inline-block;">
+                <div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
+                    <?php
+                    $events = getNews($lang_key);
 
-                foreach ($events as $event) {
-                    $img_src = $event['image_url'];
-                    ?>
-                    <div class="owl-item">
-                        <img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
-                        <div class="box-text">
-                            <h3> <?php echo $event['title']; ?> </h3>
-                            <span class="text-white">
-								<?php echo $event['intro']; ?>
-							</span>
-                            <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+                    foreach ($events as $event) {
+                        $img_src = $event['image_url'];
+                        ?>
+                        <div class="owl-item">
+                            <img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
+                            <div class="box-text">
+                                <h3> <?php echo $event['title']; ?> </h3>
+                                <span class="text-white">
+                                    <?php echo $event['intro']; ?>
+                                </span>
+                                <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+                            </div>
                         </div>
-                    </div>
-                <?php } ?>
+                    <?php } ?>
+                </div>
+                <div class="carousel-counter-container">
+                    <div class="current-counter"></div>
+                    <div class="count">/</div>
+                    <div class="carousel-count"></div>
+                </div>
+                <div class="clear"></div>
             </div>
-            <div class="carousel-counter-container">
-                <div class="current-counter"></div>
-                <div class="count">/</div>
-                <div class="carousel-count"></div>
+            <div style="width: 54%; margin-right: 5%; margin-top: 30px; display: inline-block">
+                <p style="text-align: center; margin: 50px">
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                </p>
             </div>
-            <div class="clear"></div>
         </div>
+
+        <div style="width: 100%">
+            <div style="width: 54%; margin-left: 5%; margin-top: 30px; display: inline-block">
+                <p style="text-align: center; margin: 50px">
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                    ტექსტი ტექსტი ტექსტი <br>
+                </p>
+            </div>
+
+            <div style="width: 35%; margin-right: 5%; margin-top:30px; display: inline-block;">
+                <div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
+                    <?php
+                    $events = getTournaments($lang_key);
+
+                    foreach ($events as $event) {
+                        $img_src = $event['image_url'];
+                        ?>
+                        <div class="owl-item">
+                            <img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
+                            <div class="box-text">
+                                <h3> <?php echo $event['title']; ?> </h3>
+                                <span class="text-white">
+                                    <?php echo $event['intro']; ?>
+                                </span>
+                                <a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div class="carousel-counter-container">
+                    <div class="current-counter"></div>
+                    <div class="count">/</div>
+                    <div class="carousel-count"></div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+
+
 	</section>
 	<!-- End Carousel -->
 	<!-- List + Box-skin -->

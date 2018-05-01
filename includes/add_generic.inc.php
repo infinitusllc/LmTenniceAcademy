@@ -30,6 +30,7 @@ if(isset($_POST['submit'])) {
         $keyword = mysqli_real_escape_string($conn, $_POST["key"]);
         $sql = "DELETE FROM generic_page_content WHERE keyword = $keyword";
         $result = mysqli_query($conn, $sql);
+        echo $sql."<br>";
     }
 
     if ($conn) {
@@ -49,13 +50,19 @@ if(isset($_POST['submit'])) {
                 $lang_key = $language['id'];
                 if ($first == 1) {
                     $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword, show_in_slide) VALUES 
-                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword, $display')";
+                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword', $display)";
                     $result = mysqli_query($conn, $sql);
+                    echo $sql."<br>";
+
                     $sql = "SELECT id FROM generic_page_content WHERE content = '$genpage_description' ORDER BY id DESC";
                     $result = mysqli_query($conn, $sql);
+                    echo $sql."<br>";
+
                     $id = mysqli_fetch_assoc($result)['id'];
                     $sql = "UPDATE generic_page_content SET group_id = $id WHERE id = $id";
                     $result = mysqli_query($conn, $sql);
+                    echo $sql."<br>";
+
                     $first = 0;
                 } else {
                     $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword,show_in_slide) VALUES 
@@ -99,7 +106,7 @@ if(isset($_POST['submit'])) {
         } else {
             $temp = explode(".", $_FILES["fileToUpload"]["name"]);
             $newfilename = $id . '.' . end($temp);
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/tour_images/" . $newfilename)) {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/generic_images/" . $newfilename)) {
                 echo "The file " . $newfilename . " has been uploaded."."</br>";
                 $url = 'images/generic_images/' . $newfilename;
                 $sql = "UPDATE generic_page_content SET image_url = '$url' WHERE group_id = $id";
@@ -111,7 +118,7 @@ if(isset($_POST['submit'])) {
 
         //  /adding an image
 
-        header("Location: ../admin.php?tab=generic&message=success");
+//        header("Location: ../admin.php?tab=generic&message=success");
         exit();
     }
 }
