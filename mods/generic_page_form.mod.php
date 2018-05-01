@@ -5,7 +5,6 @@
     <a href="index.php" > <p style="max-width: 180px; margin: auto"> უკან დაბრუნება </p></a>
     </br>
 
-
     <!-- after the user submits the form, he's returned back to the same page, with the corresponding message -->
     <?php if (isset($_GET["message"])) {
         $message = $_GET["message"];

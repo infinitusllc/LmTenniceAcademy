@@ -116,6 +116,7 @@
 
         .sideBar {
             width: 13%;
+            height: 100%;
             margin-top: 100px;
             margin-left: 1%;
             margin-right: 1%;
@@ -137,12 +138,12 @@
     function displayDefault() {
         openTab(event, 'main_tr_geo', 'tabcontent1', 'tablinks1');
         <?php
-            $tab = "";
-            if (isset($_GET['tab'])){
-                $tab = $_GET['tab'];
-            }
-            if ($tab = 'generic') {?>
-                openTab(event, 'generic_tr_geo', 'tabcontent1', 'tablinks1');
+        $tab = "";
+        if (isset($_GET['tab'])){
+            $tab = $_GET['tab'];
+        }
+        if ($tab = 'generic') {?>
+        openTab(event, 'generic_tr_geo', 'tabcontent1', 'tablinks1');
         <?php } ?>
     }
 
@@ -235,6 +236,9 @@ switch ($tab) {
     case "slide":
         ?> <style> #slide_form { display: block; } </style> <?php
         break;
+    case "header":
+        ?> <style> #header_form { display: block; } </style> <?php
+        break;
     default:
         ?> <style> #tour_form { display: block; } </style> <?php
         break;
@@ -244,22 +248,25 @@ switch ($tab) {
 
 <div class="sideBar">
     <ul>
-        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'tour_form',  'tabcontent2', 'tablinks2')"> ტურის დამატება </a></li>
-        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'translations', 'tabcontent2', 'tablinks2')"> თარგმნა </a></li>
-        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'combinations', 'tabcontent2', 'tablinks2')"> კომბინაციები </a></li>
-        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'generic_page_form', 'tabcontent2', 'tablinks2')"> generic გვერდი </a></li>
-        <li class="tablinks2" style="float: left; width: 100%; text-align: center"><a class="tablinks2" onclick="openTab(event, 'slide_form', 'tabcontent2', 'tablinks2')"> სლაიდის შექმნა </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center; cursor: pointer"><a class="tablinks2" href="?" onclick="openTab(event, 'tour_form',  'tabcontent2', 'tablinks2')"> ტურის დამატება </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center; cursor: pointer"><a class="tablinks2" href="?" onclick="openTab(event, 'translations', 'tabcontent2', 'tablinks2')"> თარგმნა </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center; cursor: pointer"><a class="tablinks2" href="?" onclick="openTab(event, 'combinations', 'tabcontent2', 'tablinks2')"> კომბინაციები </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center; cursor: pointer"><a class="tablinks2" href="?" onclick="openTab(event, 'generic_page_form', 'tabcontent2', 'tablinks2')"> generic გვერდი </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center; cursor: pointer"><a class="tablinks2" href="?tab=header" onclick="openTab(event, 'slide_form', 'tabcontent2', 'tablinks2')"> სლაიდის შექმნა </a></li>
+        <li class="tablinks2" style="float: left; width: 100%; text-align: center; cursor: pointer"><a class="tablinks2" href="?tab=header" onclick="openTab(event, 'header_form', 'tabcontent2', 'tablinks2')"> ჰედერის ლინკები </a></li>
     </ul>
 </div>
 
 <div class="mainArea">
 
     <?php
-        include "mods/tour_form.mod.php";
-        include "mods/translations_form.mod.php";
-        include "mods/combinations_form.inc.php";
-        include "mods/generic_page_form.mod.php";
-        include "mods/slide_form.mod.php";
+    include "mods/tour_form.mod.php";
+    include "mods/translations_form.mod.php";
+    include "mods/combinations_form.inc.php";
+    include "mods/generic_page_form.mod.php";
+    include "mods/slide_form.mod.php";
+    if ($tab == "header")
+        include "mods/header_form.mod.php";
     ?>
 
 </div>

@@ -1,9 +1,9 @@
 <?php
-$dbServername = "localhost";
-$dbUsername = "root";
-$dbPassword = "";
-$dbName = "toptrave_db";
+    $dbServername = "91.212.213.31";
+    $dbUsername = "pepoge_user";
+    $dbPassword = "bU63el6t3P";
+    $dbName = "pepoge_travel";
 
-$conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
+    $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
 
-mysqli_set_charset($conn,"utf8");
+    mysqli_set_charset($conn,"utf8");
