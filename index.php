@@ -26,6 +26,7 @@
 
     </script>
     <?php
+        ini_set('max_execution_time', 300);
         if (session_id() == '' || !isset($_SESSION)) // session isn't started
             session_start();
 
