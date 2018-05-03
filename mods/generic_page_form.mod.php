@@ -91,7 +91,12 @@
         <div style="width: 500px; margin: 50px auto 100px;">
             <p> გვერდის ტიპი: </p>
             <input name="genpage_type" oninput="checkName('genpage_name_<?php echo $language['keyword']; ?>')" class="textInput" placeholder=""  value="<?php if ($keyword != "") echo $generics[$keyword][$language['id']]['type']; ?>" id="genpage_name_<?php echo $language['keyword']; ?>"/> </br>
-
+            <p>
+                event - მთავარი სლაიდი<br>
+                news - პირველი სლაიდი<br>
+                tournament - მეორე სლაიდი<br>
+                activity - მესამე სლაიდი<br>
+            </p>
             <p> სურათი: </p>
             <input type="file" name="fileToUpload" id="fileToUpload"> </br>
             <input type="checkbox" name="display" value="true"> გამოჩნდეს სლაიდად <br><br>
