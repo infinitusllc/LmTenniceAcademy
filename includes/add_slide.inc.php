@@ -90,7 +90,7 @@ if(isset($_POST['submit'])) {
             $keyword = mysqli_real_escape_string($conn, $_POST['slide_keyword']);
             $tour_url = mysqli_real_escape_string($conn, $_POST['slide_tour_url']);
 
-            $sql = "UPDATE slide SET keyword = $keyword, tour_url = '$tour_url' WHERE keyword = '$og_keyword'";
+            $sql = "UPDATE slide SET keyword = '$keyword', tour_url = '$tour_url' WHERE keyword = '$og_keyword'";
             mysqli_query($conn, $sql);
             $sql = "SELECT id FROM slide WHERE keyword = '$keyword'";
             $result = mysqli_query($conn, $sql);
@@ -156,7 +156,7 @@ if(isset($_POST['submit'])) {
             }
 
             //  /adding an image
-//
+
             header("Location: ../admin.php?tab=slide&message=success");
             exit();
         }
