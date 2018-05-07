@@ -24,7 +24,6 @@ if (isset($_SESSION['lang_key'])) {
 
 require_once "includes/tr.inc.php";
 $labels = getTranslationsByKey($lang_key);
-
 include "login_form.mod.php";
 
 //ეს ხაზი არის საჭირო ჰედერის ლინკებისთვის
@@ -82,9 +81,6 @@ require_once "includes/get_headers.inc.php";
                     <?php
                 }
             ?>
-<!--            <li><a href="generic_page.php?lang=--><?php //echo $lang_key; ?><!--&keyword=--><?php //echo $generics['about'][$lang_key]['keyword'];?><!--">--><?php //echo $labels['mm_about']; ?><!--</a></li>-->
-<!--            <li><a href="generic_page.php?lang=--><?php //echo $lang_key; ?><!--&keyword=--><?php //echo $generics['partners'][$lang_key]['keyword'];?><!--">--><?php //echo $labels['mm_partners']; ?><!--</a></li>-->
-<!--            <li><a href="generic_page.php?lang=--><?php //echo $lang_key; ?><!--&keyword=--><?php //echo $generics['contact'][$lang_key]['keyword'];?><!--">--><?php //echo $labels['mm_contact']; ?><!--</a></li>-->
         </ul>
         <ul class="navbar-flags">
             <li><a href="?lang=geo"> <img src="images/geo.png"> </a></li>
