@@ -112,7 +112,7 @@
 						$img_src = $event['image_url'];
 				?>
 					<div class="owl-item">
-						<img src="<?php echo $img_src ?>"  alt="" width="1170" height="451">
+						<img src="<?php echo $img_src ?>"  alt="" width="1170" height="459">
 						<div class="box-text">
 							<h3> <?php echo $event['title']; ?> </h3>
 							<span class="text-white">
