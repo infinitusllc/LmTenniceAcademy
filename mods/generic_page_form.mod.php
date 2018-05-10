@@ -21,6 +21,9 @@
             case "error4": //e-mail already exists
                 ?>  <p style="margin: auto; text-align: center; color:red"> შეყვანილი პაროლები არ ემთხვევა ერთმანეთს </p>  <?php
                 break;
+            case "imageNotUploaded": //e-mail already exists
+                ?>  <p style="margin: auto; text-align: center; color:red"> სურათის ატვირთვისას მოხდა შეცდომა </p>  <?php
+                break;
             case "success":
                 ?>  <p style="margin: auto; text-align: center; color:red"> ოპერაცია წარმატებით შესრულდა </p>  <?php
                 break;
