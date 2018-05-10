@@ -71,6 +71,7 @@ if(isset($_POST['submit'])) {
                 }
             }
         }
+        $sql_delete = "DELETE FROM generic_page_content WHERE group_id = $id";
 
         // adding images
         $target_dir = "../images/generic_images/";
@@ -86,22 +87,34 @@ if(isset($_POST['submit'])) {
             } else {
                 echo "File is not an image.";
                 $uploadOk = 0;
+                mysqli_query($conn, $sql_delete);
+                header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
+                exit();
             }
         }
         // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
+        if ($_FILES["fileToUpload"]["size"] > 800000000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
+            mysqli_query($conn, $sql_delete);
+            header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
+            exit();
         }
         // Allow certain file formats
         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif") {
             echo "only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
+            mysqli_query($conn, $sql_delete);
+            header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
+            exit();
         }
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
+            mysqli_query($conn, $sql_delete);
+            header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
+            exit();
             // if everything is ok, try to upload file
         } else {
             $temp = explode(".", $_FILES["fileToUpload"]["name"]);
@@ -110,15 +123,19 @@ if(isset($_POST['submit'])) {
                 echo "The file " . $newfilename . " has been uploaded."."</br>";
                 $url = 'images/generic_images/' . $newfilename;
                 $sql = "UPDATE generic_page_content SET image_url = '$url' WHERE group_id = $id";
-                mysqli_query($conn, $sql);
+                if (mysqli_query($conn, $sql)) {
+                    header("Location: ../admin.php?tab=generic&message=success");
+                    exit();
+                }
             } else {
-                echo "Sorry, there was an error uploading your file.";
+                mysqli_query($conn, $sql_delete);
+                header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
+                exit();
             }
         }
 
         //  /adding an image
-
-//        header("Location: ../admin.php?tab=generic&message=success");
+        header("Location: ../admin.php?tab=generic&message=success");
         exit();
     }
 }
