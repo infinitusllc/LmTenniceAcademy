@@ -71,6 +71,11 @@ if(isset($_POST['submit'])) {
                 }
             }
         }
+
+        if ($_FILES['fileToUpload']['name'] == null) {
+            header("Location: ../admin.php?tab=generic&message=success");
+            exit();
+        }
         $sql_delete = "DELETE FROM generic_page_content WHERE group_id = $id";
 
         // adding images
