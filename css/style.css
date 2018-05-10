@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*
 * @package      Style
 * @description  This package holds all common style declarations
@@ -131,7 +131,7 @@ img {
 }
 
 a, button, input {
-    transition: .3s all ease;
+    /* transition: .3s all ease; */
     /* border: 1px solid #d35220; */
 }
 
@@ -191,6 +191,34 @@ html.boxed .page {
 
 @media (min-width: 1200px) {
     .container {
+        max-width: 1200px;
+        text-align: center;
+    }
+}
+
+.container-np {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    min-width: 300px;
+    /* max-width: 480px; */
+}
+
+@media (min-width: 768px) {
+    .container-np {
+        max-width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container-np {
+        max-width: 970px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container-np {
         max-width: 1200px;
         text-align: center;
     }
@@ -8023,20 +8051,32 @@ hr {
 }
 
 .page-header {
+    min-height: 110px;
+    z-index: 100;
     position: fixed;
     top: 0;
-    min-height: 110px;
-    /* background-color: lavender; */
-    width: 100%;
-    /*height: 110px;*/
-    z-index: 100;
-    /* opacity: 0.3; */
-    background-color: rgb(255, 255, 255, 0.75);
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
+.top-bar {
+    display: grid;
+    grid-template-columns: 80px 1fr auto auto;
+    grid-template-areas: "logo menu user flags";
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-bar > div {
+    display: flex;
+    align-items: center;
+}
+
+
 .well-welcome {
-    padding-top: 87px;
-    padding-bottom: 37px;
+    padding-top: 91px;
+    padding-bottom: 52px;
 }
 
 .well-md {
@@ -8328,11 +8368,6 @@ html body .page .text-contrast-1 {
 /*
 * @subsection   Text Alignment
 */
-.slide-text-center a p {
-    font-size: 155px;
-    text-shadow: 0px 1px 0px #333;
-    color: #f3f3f3;
-}
 
 .text-left {
     text-align: left;
@@ -13305,13 +13340,8 @@ a.icon-primary:hover {
 * @link         https://ua.linkedin.com/pub/evgeniy-gusarov/8a/a40/54a
 * @version      2.0.0
 */
-.rd-navbar-brand {
-    padding-top: 3px;
-    margin-left: 2px;
-    letter-spacing: 2.4px;
-    text-transform: uppercase;
-    position: absolute;
-    z-index: 71;
+.navbar-logo {
+    grid-area: logo;
 }
 
 @media (max-width: 1600px) {
@@ -13347,199 +13377,6 @@ a.icon-primary:hover {
 * @version      1.1.2
 */
 
-/*  navbar-nav  */
-div .navbar-nav {
-    z-index: 27;
-}
-
-@media (min-width: 1200px) {
-    div .navbar-nav {
-        position: absolute;
-        width: 470px;
-        padding: 0;
-        top: 35px;
-        left: 933px;
-    }
-}
-
-@media (max-width: 1600px) {
-    div .navbar-nav {
-        /* top: 106px; */
-        left: 580px;
-    }
-}
-
-@media (max-width: 1199px) {
-    div .navbar-nav {
-        /* padding: 0px; */
-        /* width: 100%; */
-        /* position: relative; */
-        /* top: 0; */
-        position: absolute;
-        width: 470px;
-        padding: 0;
-        top: 35px;
-        left: 201px;
-    }
-}
-
-.navbar-nav {
-    position: absolute;
-    width: 770px;
-    padding: 20px 35px 38px 33px;
-    top: 23px;
-    z-index: 27;
-}
-
-    .navbar-nav > li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        line-height: 20px;
-        /* text-shadow: 0px 0px 1px #333; */
-        color: #d35220;
-        font-size: 19.5px;
-        font-weight: normal;
-    }
-
-@media (max-width:767px) {
-    .navbar-nav .open .dropdown-menu {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        line-height: 20px;
-        /* text-shadow: 0px 0px 1px #333; */
-        color: #333;
-        font-size: 19px;
-    }
-
-        .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
-            padding: 5px 15px 5px 25px
-        }
-
-        .navbar-nav .open .dropdown-menu > li > a {
-            line-height: 20px
-        }
-
-            .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-nav .open .dropdown-menu > li > a:hover {
-                background-image: none
-            }
-}
-
-@media (min-width:768px) {
-    .navbar-nav {
-        float: left;
-        margin: 0
-    }
-
-        .navbar-nav > li {
-            float: left;
-            padding: 10px;
-            font-size: 18.5px;
-        }
-
-            .navbar-nav > li > a {
-                padding-top: 15px;
-                padding-bottom: 15px;
-                /* padding-right: 17px; */
-            }
-}
-
-/*  navbar-flags  */
-div .navbar-flags {
-    z-index: 27;
-}
-
-@media (min-width: 1200px) {
-    div .navbar-flags {
-        position: relative;
-        padding: 0;
-        top: 43px;
-        left: 1064px;
-        /* opacity: 0; */
-    }
-}
-
-@media (max-width: 1600px) {
-    div .navbar-flags {
-        /* top: 106px; */
-    }
-}
-
-@media (max-width: 1199px) {
-    div .navbar-flags {
-        /* padding: 0px; */
-        /* width: 100%; */
-        /* position: relative; */
-        /* top: 0; */
-        position: relative;
-        padding: 0;
-        top: 43px;
-        left: 614px;
-    }
-}
-
-.navbar-flags {
-    position: absolute;
-    width: 770px;
-    padding: 20px 35px 38px 33px;
-    top: 23px;
-    left: 500px;
-    z-index: 27;
-}
-
-    .navbar-flags > li > a {
-        /* padding-top: 10px; */
-        /* padding-bottom: 10px; */
-        /* line-height: 20px; */
-        text-shadow: 1px 1px 1px #333;
-        color: white;
-    }
-
-@media (max-width:767px) {
-    .navbar-flags .open .dropdown-menu {
-        position: static;
-        float: none;
-        width: auto;
-        margin-top: 0;
-        background-color: transparent;
-        border: 0;
-        -webkit-box-shadow: none;
-        box-shadow: none
-    }
-
-        .navbar-flags .open .dropdown-menu .dropdown-header, .navbar-flags .open .dropdown-menu > li > a {
-            padding: 5px 15px 5px 25px
-        }
-
-        .navbar-flags .open .dropdown-menu > li > a {
-            line-height: 20px
-        }
-
-            .navbar-flags .open .dropdown-menu > li > a:focus, .navbar-flags .open .dropdown-menu > li > a:hover {
-                background-image: none
-            }
-}
-
-@media (min-width:768px) {
-    .navbar-flags {
-        float: left;
-        margin: 0
-    }
-
-        .navbar-flags > li {
-            float: left;
-            padding-left: 4px;
-        }
-
-            .navbar-flags > li > a {
-                /* padding-top: 15px; */
-                /* padding-bottom: 15px; */
-                /* padding-right: 10px; */
-                height: 31px;
-                width: 31px;
-            }
-}
-
-
 /*  navbar-user  */
 div .navbar-user {
     z-index: 27;
@@ -13547,13 +13384,13 @@ div .navbar-user {
 
 @media (min-width: 1200px) {
     div .navbar-user {
-        position: relative;
+        /* position: relative; */
         width: 30px;
         padding: 0;
-        top: 6px;
-        left: 1030px;
+        /* top: 6px; */
+        /* left: 1030px; */
         /* opacity: 0; */
-        font-size: 30px;
+        /* font-size: 30px; */
         padding: 0px;
     }
 }
@@ -15482,7 +15319,7 @@ div .rd-mailform1 .mfControls {
 .swiper-slide-caption {
     margin-left: 0px;
     position: relative;
-    bottom: 0%;
+    bottom: 25%;
     display: inline-block;
     width: 100%;
     max-height: 100%;
@@ -15491,7 +15328,7 @@ div .rd-mailform1 .mfControls {
 
 @media (min-width: 1200px) {
     .swiper-slide-caption {
-        margin-left: -10px;
+        margin-left: 10px;
     }
 }
 
@@ -15547,8 +15384,6 @@ div .rd-mailform1 .mfControls {
 
 .swiper-slide-caption p + h3 {
     margin-top: 31px;
-    /* display: block; */
-    /* margin-top: 39px; */
     line-height: 24px;
     font-size: 27px;
 }
@@ -15573,11 +15408,24 @@ div .rd-mailform1 .mfControls {
 @media (min-width: 768px) {
     .swiper-slide-caption p {
         display: block;
-        /* margin-top: 39px; */
         line-height: 24px;
         font-size: 16px;
     }
 }
+
+.slide-text-center a p {
+    font-size: 71px;
+    text-shadow: 0px 1px 0px #333;
+    color: #f3f3f3;
+}
+
+.slide-text-left a p {
+    font-size: 71px;
+    text-shadow: 0px 1px 0px #333;
+    color: #f3f3f3;
+    text-align: left;
+}
+
 
 /* 
  *  Owl Carousel - Animate Plugin
@@ -16077,6 +15925,7 @@ div .rd-mailform1 .mfControls {
 .dropdown {
     position: relative;
     display: inline-block;
+    /* text-align: left; */
 }
 
 .dropdown-content {
@@ -16339,3 +16188,124 @@ label span {/* <-- style the artificial checkbox */
             color: #fff;
             top: 5px;
         }
+
+
+
+
+/* KK */
+/* actual menu starts here*/
+.k-page-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.80);
+    z-index: 100;
+}
+
+.k-top-bar {
+    display: grid;
+    grid-template-columns: 410px 1fr auto  auto;
+    grid-template-areas: "logo menu user flags";
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.k-top-bar > div {
+    display: flex;
+    align-items: center;
+}
+
+/* iPhone Portrait */
+@media only screen and (max-width : 376px) {
+    .k-top-bar {
+        grid-template-columns: 60px 1fr;
+        grid-template-areas: "menu menu " "logo flags" "logo user";
+    }
+
+    .k-top-bar .k-menu {
+        justify-content: center;
+    }
+}
+
+/* Landscape iPhone and iPad */
+@media only screen and (min-width: 376px) and (max-width : 768px) {
+    .k-top-bar {
+        grid-template-columns: 80px 1fr auto;
+        grid-template-areas: "logo menu menu" "logo user flags";
+    }
+
+    .k-top-bar .k-menu {
+        justify-content: flex-end;
+    }
+}
+
+.k-logo {
+    grid-area: logo;
+}
+
+.k-menu {
+    grid-area: menu;
+    justify-content: flex-end;
+}
+
+.k-user {
+    grid-area: user;
+    justify-content: flex-end;
+    padding: 8px;
+}
+
+.k-flags {
+    grid-area: flags;
+    justify-content: flex-end;
+    padding: 0 8px;
+    /* width: 50px; */
+}
+
+.k-flags > a {
+    margin: 0 2px;
+}
+
+
+.k-top-bar .k-menu {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    /* width: 800px; */
+}
+
+.k-top-bar .k-menu > div {
+    padding: 0;
+    /* border-right: 1px solid #d35220; */
+    /* visibility: hidden; */
+    width: 117px;
+    line-height: 27px;
+}
+
+.k-top-bar .k-menu a {
+    color: #d35220;
+    text-decoration: none;
+}
+
+.k-dropdown-content {
+    position: absolute;
+    display: none;
+    background-color: #ffffff;
+    margin: 8px 0;
+}
+
+.k-dropdown-content div {
+    padding: 12px;
+}
+
+.k-dropdown-content div:hover {
+    background-color: #634584;
+    transition: all ease .4s
+}
+
+.k-dropdown-content div:hover a {
+    color: #ffffff !important;
+}
+
+.k-dropdown:hover .k-dropdown-content {
+    display: block;
+}

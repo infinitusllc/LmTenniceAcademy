@@ -132,7 +132,7 @@
 		</div>
 
 
-        <!--        ================================ პირველი კარუსელი ===============================-->
+        <!--================================ პირველი კარუსელი ===============================-->
         <div style="width: 100%">
             <div style="width: 35%; margin-left: 5%; margin-top:30px; display: inline-block;">
                 <div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
@@ -259,31 +259,22 @@
 
     </section>
 	<!-- End Carousel -->
-	<!-- Index-list -->
-	<section class="well-xs">
+
+	
+	<!-- LM Profile -->
+	<section class="well-welcome" id="exLmProfile">
 		<div class="container">
-			<ul class="row list2">
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-assignment"></span>
-					<h2> <a href="#">დარეგისტრირდი<br />გახდი მოგზაური</a></h2>
-				</li>
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-mouse"></span>
-					<h2> <a href="#">გააკეთე<br />რეზერვაცია</a></h2>
-				</li>
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-drafts"></span>
-					<h2> <a href="#">გამოწერე<br />ჩვენი სიახლეები</a></h2>
-				</li>
-				<li class="col-md-3">
-					<span class="icon-lg material-icons-explore"></span>
-					<h2><a href="#">ჩვენი<br />მხარდაჭერა</a></h2>
-				</li>
-			</ul>
+			<div>
+				<?php
+					echo $generics['profile'][$lang_key]['intro']; 
+				?>
+			</div>
 		</div>
 	</section>
-	<!-- End Index-list -->
-    <!--========================================================
+	<!-- LM Profile -->
+
+
+	<!--========================================================
     FOOTER
     ==========================================================-->
     <?php include "mods/footer.mod.php"; ?>
