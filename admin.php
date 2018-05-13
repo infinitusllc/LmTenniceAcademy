@@ -12,7 +12,7 @@
 
     ?>
     <title> ადმინის გვერდი </title>
-    <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.9.2/full/ckeditor.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
     <style>
         ul {

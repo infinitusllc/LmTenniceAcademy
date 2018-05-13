@@ -52,16 +52,13 @@ if(isset($_POST['submit'])) {
                     $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword, show_in_slide) VALUES 
                                                     ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword', $display)";
                     $result = mysqli_query($conn, $sql);
-                    echo $sql."<br>";
 
                     $sql = "SELECT id FROM generic_page_content WHERE content = '$genpage_description' ORDER BY id DESC";
                     $result = mysqli_query($conn, $sql);
-                    echo $sql."<br>";
 
                     $id = mysqli_fetch_assoc($result)['id'];
                     $sql = "UPDATE generic_page_content SET group_id = $id WHERE id = $id";
                     $result = mysqli_query($conn, $sql);
-                    echo $sql."<br>";
 
                     $first = 0;
                 } else {

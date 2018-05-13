@@ -51,45 +51,43 @@ require_once "includes/get_headers.inc.php";
 
 ?>
 
-<section class="k-page-header">
-    <div class="k-top-bar">
+<section class="page-header">
+    <div class="container">
         <!-- RD Navbar Brand -->
-        <div class="k-logo">
+        <ul class="rd-navbar-brand">
             <a href="index.php" class="brand-name primary-color">
-                <img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo1.png" alt="" width="410" height="100">
+                <img src="images/logo.png" data-srcset-base="images/" data-srcset-ext="logo1.png" alt="" width="100" height="100">
             </a>
-        </div>
-        <div class="k-menu">
+        </ul>
+        <ul class="navbar-nav">
             <?php
                 $top_links = getHeadersByLevel($lang_key, 0);
                 foreach ($top_links as $top_link) { ?>
-                    <div class="k-dropdown">
-                        <a class="" onclick="window.location.href='<?php echo $top_link['url']; ?>'"><?php echo $top_link['name']; ?></a>
-                        <div class="k-dropdown-content">
-                            <?php
-                                $parent_id = $top_link['id'];
-                                $children = getHeadersByParent($lang_key, $parent_id);
-                                foreach ($children as $child) { ?>
-                                    <div>
-										<a href="<?php echo $child['url']; ?>"><?php echo $child['name']; ?> &#8599;</a>
-									</div>
-                                    <?php
-                                }
-                            ?>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn" onclick="window.location.href='<?php echo $top_link['url']; ?>'"><?php echo $top_link['name']; ?></button>
+                            <div class="dropdown-content">
+                                <?php
+                                    $parent_id = $top_link['id'];
+                                    $children = getHeadersByParent($lang_key, $parent_id);
+                                    foreach ($children as $child) { ?>
+                                        <a href="<?php echo $child['url']; ?>"><?php echo $child['name']; ?> &#8599;</a>
+                                        <?php
+                                    }
+                                ?>
+                            </div>
                         </div>
-                    </div>
+                    </li>
                     <?php
                 }
             ?>
-        </div>
-        <div class="k-flags">
-            <ul>
-				<li style="height: 31px;"><a href="?lang=geo"><img src="images/geo.png"></a></li>
-				<li style="height: 31px;"><a href="?lang=eng"><img src="images/eng.png"></a></li>
-				<!--<div><a href="?lang=rus"> <img src="images/rus.png"></a></div>-->
-			</ul>            
-        </div>
-        <ul class="navbar-user" style="visibility: hidden;">
+        </ul>
+        <ul class="navbar-flags">
+            <li><a href="?lang=geo"> <img src="images/geo.png"> </a></li>
+            <li><a href="?lang=eng"> <img src="images/eng.png"> </a></li>
+            <li><a href="?lang=rus"> <img src="images/rus.png"> </a></li>
+        </ul>
+        <ul class="navbar-user">
             <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
                 <div class="dropdown">
                     <button class="dropbtn"> <span class="material-icons-account_box"></span></button>

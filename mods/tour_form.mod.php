@@ -58,7 +58,7 @@
                     <p style="text-align: center"> ტურის ინტრო: * </p>
                     <textarea name="tour_intro_<?php echo $language['keyword']; ?>" form="tour-form" class="textInput htmlClass" id="tour_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო">  </textarea> </br>
                     <script>
-                        CKEDITOR.replace( "tour_intro_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "tour_intro_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?>);
                     </script>
                 </div>
 
@@ -66,7 +66,7 @@
                     <p style="text-align: center"> ტურის აღწერა: </p>
                     <textarea name="tour_description_<?php echo $language['keyword']; ?>" form="tour-form" class="textInput htmlClass" placeholder="*">  </textarea> </br>
                     <script>
-                        CKEDITOR.replace( "tour_description_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "tour_description_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?> );
                     </script>
                 </div>
 

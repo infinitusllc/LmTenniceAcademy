@@ -69,7 +69,7 @@
                     <p style="text-align: center"> სლაიდის ინტრო: </p>
                     <textarea name="slide_intro_<?php echo $language['keyword']; ?>" form="slide-form" class="textInput htmlClass" id="slide_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო"> <?php if($change) echo $s['intro']; ?> </textarea> </br>
                     <script>
-                        CKEDITOR.replace( "slide_intro_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "slide_intro_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?> );
                     </script>
                 </div>
 
@@ -77,7 +77,7 @@
                     <p style="text-align: center"> სლაიდის აღწერა: </p>
                     <textarea name="slide_description_<?php echo $language['keyword']; ?>" form="slide-form" class="textInput htmlClass" placeholder="*"> <?php if($change) echo $s['description']; ?> </textarea> </br>
                     <script>
-                        CKEDITOR.replace( "slide_description_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "slide_description_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?> );
                     </script>
                 </div>
 

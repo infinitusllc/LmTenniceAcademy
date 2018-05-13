@@ -74,7 +74,7 @@
                     <p style="text-align: center"> ინტრო: * </p>
                     <textarea name="genpage_intro_<?php echo $language['keyword']; ?>" form="generic-form" class="textInput htmlClass" id="genpage_intro_<?php echo $language['keyword']; ?>" placeholder="ინტრო" >  <?php if ($keyword != "") echo $generics[$keyword][$language['id']]['intro']; ?> </textarea> </br>
                     <script>
-                        CKEDITOR.replace( "genpage_intro_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "genpage_intro_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?> );
                     </script>
                 </div>
 
@@ -82,7 +82,7 @@
                     <p style="text-align: center"> აღწერა: *</p>
                     <textarea name="genpage_description_<?php echo $language['keyword']; ?>" form="generic-form" class="textInput htmlClass" placeholder="*"> <?php if ($keyword != "") echo $generics[$keyword][$language['id']]['content']; ?>  </textarea> </br>
                     <script>
-                        CKEDITOR.replace( "genpage_description_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "genpage_description_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?> );
                     </script>
                 </div>
 
