@@ -75,7 +75,7 @@ include "login_form.mod.php";
 				<!--<div><a href="?lang=rus"> <img src="images/rus.png"></a></div>-->
 			</ul>            
         </div>
-        <ul class="navbar-user" style="visibility: hidden;">
+        <ul class="navbar-user">
             <?php if (isset($_SESSION["logged"]) && $_SESSION["logged"] == true) { ?>
                 <div class="dropdown">
                     <button class="dropbtn"> <span class="material-icons-account_box"></span></button>
