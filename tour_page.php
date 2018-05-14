@@ -37,11 +37,6 @@
     $tour_content = getTourContent($id, $lang_key);
     $tour_images = getTourImages($id);
 
-    $logged = $_SESSION['admin'];
-    if (!isset($logged) || $logged == false){
-        header("Location: ind.php");
-        exit();
-    }
     ?>
 
     <?php

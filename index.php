@@ -30,12 +30,6 @@
         if (session_id() == '' || !isset($_SESSION)) // session isn't started
             session_start();
 
-        $logged = $_SESSION['admin'];
-        if (!isset($logged) || $logged == false) {
-            header("Location: ind.php");
-            exit();
-        }
-
         include "includes/tr.inc.php";
         $lang = "geo";
         if (isset($_GET['lang'])){
