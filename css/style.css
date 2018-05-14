@@ -13387,8 +13387,8 @@ div .navbar-user {
         /* position: relative; */
         width: 30px;
         padding: 0;
-        /* top: 6px; */
-        /* left: 1030px; */
+        top: 14px;
+        left: 750px;
         /* opacity: 0; */
         /* font-size: 30px; */
         padding: 0px;
@@ -15548,7 +15548,7 @@ div .rd-mailform1 .mfControls {
     }
 
         .owl-carousel .owl-item .box-text .btn {
-            /* margin-top: 20px; */
+            margin-top: 20px;
         }
 }
 
@@ -15562,7 +15562,7 @@ div .rd-mailform1 .mfControls {
 }
 
 .owl-carousel .owl-item .btn {
-    font-weight: 700;
+    font-weight: normal;
     margin-top: 40px;
 }
 
