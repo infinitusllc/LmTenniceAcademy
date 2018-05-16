@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     $time = date('c');
 
     $to = "turdzeladze@gmail.com";
-    $subject = "message from toptravel: ".$subject;
+    $subject = "message from Leila Meskhi Tennis Academy: ".$subject;
 
     $message = $msg."\n\n\n sent by: ".$e_mail;
 

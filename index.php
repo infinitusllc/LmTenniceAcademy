@@ -125,7 +125,7 @@
 			</div>
 			<div class="carousel-counter-container">
 				<div class="current-counter"></div>
-				<div class="count">/</div>
+				<!-- <div class="count">/</div> -->
 				<div class="carousel-count"></div>
 			</div>
 			<div class="clear"></div>
@@ -138,26 +138,23 @@
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
 				<?php
 					require_once "includes/events.inc.php";
-					$events = getTournaments($lang_key);
+					$tournaments = getTournaments($lang_key);
 
-					foreach ($events as $event) {
-						$img_src = $event['image_url'];
+					foreach ($tournaments as $tournament) {
 				?>
 					<div class="owl-item">
-						<img src="<?php echo $img_src ?>"  alt="" width="1170">
 						<div class="box-text">
-							<h3> <?php echo $event['title']; ?> </h3>
 							<span class="text-white">
-								<?php echo $event['intro']; ?>
+								<?php echo $tournament['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $tournament['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
 			</div>
 			<div class="carousel-counter-container">
 				<div class="current-counter"></div>
-				<div class="count">/</div>
+				<!-- <div class="count">/</div> -->
 				<div class="carousel-count"></div>
 			</div>
 			<div class="clear"></div>
@@ -169,26 +166,26 @@
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
 				<?php
 					require_once "includes/events.inc.php";
-					$events = getNews($lang_key);
+					$newss = getNews($lang_key);
 
-					foreach ($events as $event) {
-						$img_src = $event['image_url'];
+					foreach ($newss as $news) {
+						$img_src = $news['image_url'];
 				?>
 					<div class="owl-item">
 						<img src="<?php echo $img_src ?>"  alt="" width="1170">
 						<div class="box-text">
-							<h3> <?php echo $event['title']; ?> </h3>
+							<h3> <?php echo $news['title']; ?> </h3>
 							<span class="text-white">
-								<?php echo $event['intro']; ?>
+								<?php echo $news['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $news['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
 			</div>
 			<div class="carousel-counter-container">
 				<div class="current-counter"></div>
-				<div class="count">/</div>
+				<!-- <div class="count">/</div> -->
 				<div class="carousel-count"></div>
 			</div>
 			<div class="clear"></div>

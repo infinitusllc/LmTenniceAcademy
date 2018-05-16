@@ -196,6 +196,35 @@ html.boxed .page {
     }
 }
 
+..mini-slide {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    min-width: 300px;
+    max-width: 480px;
+    padding-top: 15;
+    padding-bottom: 15;
+}
+
+@media (min-width: 768px) {
+    .mini-slide {
+        padding: 15 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .mini-slide {
+        padding: 15 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mini-slide {
+        padding: 15 0;
+    }
+}
+
 .container-np {
     margin-right: auto;
     margin-left: auto;
@@ -15765,7 +15794,7 @@ div .rd-mailform1 .mfControls {
 
 .owl-prev, .owl-next {
     position: absolute;
-    bottom: -92px;
+    bottom: -37px;
     width: 29px;
     height: 21px;
     transition: .3s all ease;
@@ -15776,7 +15805,7 @@ div .rd-mailform1 .mfControls {
     }
 
 .owl-prev {
-    right: 193px;
+    right: 53px;
     background: url("../images/arrow_carousel-prev.png") no-repeat;
 }
 
@@ -16290,7 +16319,7 @@ label span {/* <-- style the artificial checkbox */
     position: absolute;
     display: none;
     background-color: #ffffff;
-    margin: 8px 0;
+    margin: 0;
 }
 
 .k-dropdown-content div {
@@ -16298,8 +16327,8 @@ label span {/* <-- style the artificial checkbox */
 }
 
 .k-dropdown-content div:hover {
-    background-color: #634584;
-    transition: all ease .4s
+    background-color: #d35220;
+    transition: all ease .4s;
 }
 
 .k-dropdown-content div:hover a {

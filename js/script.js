@@ -553,12 +553,12 @@ $(document).ready(function(){
                                 })
                             }
                         }
-                        $('.current-counter').html("0" + (this._current+1));
-                        $('.carousel-count').html('0' + this._items.length );
+                        //$('.current-counter').html("0" + (this._current+1));
+                        //$('.carousel-count').html('0' + this._items.length );
                      
                     },
                     onTranslate: function () {
-                        $('.current-counter').html("0" + (this._current+1));
+                        //$('.current-counter').html("0" + (this._current+1));
                     },
                 });
             });
