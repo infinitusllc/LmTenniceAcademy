@@ -6,7 +6,7 @@
         $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key ORDER BY weight DESC";
         $result = mysqli_query($conn, $sql);
 
-        $r = [];
+        $r = array();
         while ($row = mysqli_fetch_assoc($result))
             array_push($r, $row);
 
@@ -19,7 +19,7 @@
         $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and `level` = $level ORDER BY weight DESC";
         $result = mysqli_query($conn, $sql);
 
-        $r = [];
+        $r = array();
         while ($row = mysqli_fetch_assoc($result))
             array_push($r, $row);
 
@@ -32,7 +32,7 @@
         $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and id = $id ORDER BY weight DESC";
         $result = mysqli_query($conn, $sql);
 
-        $r = [];
+        $r = array();
         while ($row = mysqli_fetch_assoc($result))
             array_push($r, $row);
 
@@ -45,7 +45,7 @@
         $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and keyword = '$keyword' ORDER BY weight DESC";
         $result = mysqli_query($conn, $sql);
 
-        $r = [];
+        $r = array();
         while ($row = mysqli_fetch_assoc($result))
             array_push($r, $row);
 
@@ -58,7 +58,7 @@
         $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and parent_id = $parent_id ORDER BY weight DESC";
         $result = mysqli_query($conn, $sql);
 
-        $r = [];
+        $r = array();
         while ($row = mysqli_fetch_assoc($result))
             array_push($r, $row);
 
@@ -71,7 +71,7 @@
         $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id GROUP BY group_id ORDER BY weight DESC";
         $result = mysqli_query($conn, $sql);
 
-        $r = [];
+        $r = array();
         while ($row = mysqli_fetch_assoc($result))
             array_push($r, $row);
 

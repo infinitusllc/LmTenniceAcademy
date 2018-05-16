@@ -17,7 +17,7 @@
                 ?> <p> ცვლადის შეცვლა ქივორდით <?php echo $title; ?></p> <?php
             }
 
-            $tr = null;
+            $tr = array();
             foreach ($translations as $translation) {
                 if ($translation['title'] == $title){
                     $tr = $translation;

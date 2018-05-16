@@ -6,7 +6,7 @@ function getSlides($lang) {
     $sql = "SELECT * FROM  slide INNER JOIN slide_content sc ON slide.id = sc.slide_id WHERE lang_key = '$lang'";
     $result = mysqli_query($conn, $sql);
 
-    $slides = [];
+    $slides = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($slides, $row);
     }
@@ -21,7 +21,7 @@ function getSlide($keyword, $lang) {
 '$keyword' AND lang_key = '$lang'";
     $result = mysqli_query($conn, $sql);
 
-    $slides = [];
+    $slides = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($slides, $row);
     }
@@ -36,7 +36,7 @@ function getAllSlides() {
     $sql = "SELECT * FROM  slide";
     $result = mysqli_query($conn, $sql);
 
-    $slides = [];
+    $slides = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($slides, $row);
     }

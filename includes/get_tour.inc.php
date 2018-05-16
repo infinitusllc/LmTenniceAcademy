@@ -5,7 +5,7 @@ function getTour($id) {
     $sql = "SELECT * FROM tours WHERE tour_id = $id";
     $result_sql = mysqli_query($conn, $sql);
 
-    $tour = null;
+    $tour = array();
     while ($row = mysqli_fetch_assoc($result_sql)){
         $tour = $row;
     }
@@ -19,7 +19,7 @@ function getTourContent($id, $langKey) {
     $sql = "SELECT * FROM tour_content WHERE tour_id = $id AND language_key = '$langKey'";
     $result_sql = mysqli_query($conn, $sql);
 
-    $content = null;
+    $content = array();
     while ($row = mysqli_fetch_assoc($result_sql)){
         $content = $row;
     }
@@ -33,7 +33,7 @@ function getTourImages($id) {
     $sql = "SELECT * FROM tour_images WHERE tour_id = $id ORDER BY is_main DESC";
     $result_sql = mysqli_query($conn, $sql);
 
-    $images = null;
+    $images = array();
     $i=0;
     while ($row = mysqli_fetch_assoc($result_sql)){
         $images[$i] = $row;
@@ -49,7 +49,7 @@ function getRecommendedTourIds($num){
     $sql = "SELECT tour_id FROM tours WHERE is_recommended = 1 ORDER BY created_time DESC LIMIT $num";
     $result_sql = mysqli_query($conn, $sql);
 
-    $tour = null;
+    $tour = array();
     $i=0;
     while ($row = mysqli_fetch_assoc($result_sql)){
         $tour[$i] = $row;

@@ -1,6 +1,6 @@
 <?php
 include "dbc.inc.php";
-$countries = [];
+$countries = array();
 
 $sql_countries = "SELECT * FROM countries";
 $result_sql = mysqli_query($conn, $sql_countries);
