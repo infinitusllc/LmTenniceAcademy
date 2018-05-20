@@ -30,7 +30,7 @@ WHERE language_key = '$lang' AND is_deleted = 0 and is_main = 1";
 
     $result = mysqli_query($conn, $sql);
 
-    $tours = [];
+    $tours = array();
 
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($tours, $row);

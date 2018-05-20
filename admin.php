@@ -18,8 +18,15 @@
 
 
 <?php
+
     session_start();
     $user = $_SESSION['user'];
+    
+    if($user['is_admin'] != 1) {
+        header("Location: index.php");
+        exit();    
+    }
+    
     $tab = "tours";
     if (isset($_GET['tab']))
         $tab = $_GET['tab'];

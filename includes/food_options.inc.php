@@ -1,6 +1,6 @@
 <?php
 include "dbc.inc.php";
-$food_options = [];
+$food_options = array();
 
 $sql_food = "SELECT * FROM food_options ORDER BY group_id";
 $result_sql = mysqli_query($conn, $sql_food);

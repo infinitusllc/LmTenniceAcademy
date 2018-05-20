@@ -1,6 +1,6 @@
 <?php
 include "dbc.inc.php";
-$currencies = [];
+$currencies = array();
 
 $sql_currencies = "SELECT * FROM currenсies";
 $result_sql = mysqli_query($conn, $sql_currencies);

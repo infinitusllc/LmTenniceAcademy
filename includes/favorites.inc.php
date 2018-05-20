@@ -7,7 +7,7 @@ function getFavorites($user_id) {
                             INNER JOIN tour_images img ON tr.tour_id = img.tour_id WHERE fv.user_id = $user_id";
     $result = mysqli_query($conn, $sql);
 
-    $tours = [];
+    $tours = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($tours, $row);
     }

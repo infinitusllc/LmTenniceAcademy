@@ -4,7 +4,7 @@ session_start();
 if(isset($_POST['submit'])) {
     include 'dbc.inc.php';
 
-    $values = [];
+    $values = array();
 
     include "languages.inc.php";
     for ($i=0; $i<sizeof($languages); $i++){

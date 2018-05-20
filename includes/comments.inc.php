@@ -10,7 +10,7 @@ function getCommentsByTour($tour_id) {
     $sql = "SELECT * FROM comments INNER JOIN users on users.user_id = comments.user_id WHERE tour_id = $tour_id AND is_deleted_by_mod = 0";
     $result = mysqli_query($conn, $sql);
 
-    $comments = [];
+    $comments = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($comments, $row);
     }
@@ -23,7 +23,7 @@ function getReviews() {
     $sql = "SELECT * FROM reviews WHERE is_deleted = 0 ORDER BY `time` DESC";
     $result = mysqli_query($conn, $sql);
 
-    $reviews = [];
+    $reviews = array();
     while ($row = mysqli_fetch_assoc($result)) {
         array_push($reviews, $row);
     }

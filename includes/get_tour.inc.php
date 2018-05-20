@@ -65,7 +65,7 @@ function getAllTours() {
     $sql = "SELECT * FROM tours";
     $result_sql = mysqli_query($conn, $sql);
 
-    $tours = [];
+    $tours = array();
     while ($row = mysqli_fetch_assoc($result_sql)){
         array_push($tours, $row);
     }
