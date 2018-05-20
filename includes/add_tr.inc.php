@@ -11,8 +11,8 @@ if(isset($_POST['submit'])) {
         exit();
     }
 
-    $keywords = array();
-    $values = array();
+    $keywords = [];
+    $values = [];
 
     include "languages.inc.php";
     for ($i=0; $i<sizeof($languages); $i++){

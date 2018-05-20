@@ -11,7 +11,7 @@ function getCategories($lang) {
     $sql = "SELECT * FROM tour_categories WHERE language_key = $lang ORDER BY `index` ASC";
     $result = mysqli_query($conn, $sql);
 
-    $tour_categories = array();
+    $tour_categories = [];
 
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {
@@ -27,7 +27,7 @@ function getCategory($id, $lang_key) {
     $sql = "SELECT * FROM tour_categories WHERE group_id = $id AND language_key = $lang_key ORDER BY `index` ASC";
     $result = mysqli_query($conn, $sql);
 
-    $tour_categories = array();
+    $tour_categories = [];
 
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {
@@ -44,7 +44,7 @@ function getTypeById($group_id, $lang_key) {
     $sql = "SELECT * FROM tour_types WHERE language_key = $lang_key AND group_id = $group_id ORDER BY `index` ASC";
     $result = mysqli_query($conn, $sql);
 
-    $tour_categories = array();
+    $tour_categories = [];
 
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {
@@ -62,7 +62,7 @@ function getTypes($lang_key) {
     $sql = "SELECT * FROM tour_types WHERE language_key = $lang_key ORDER BY `index` ASC";
     $result = mysqli_query($conn, $sql);
 
-    $tour_categories = array();
+    $tour_categories = [];
 
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {
@@ -81,7 +81,7 @@ INNER join tour_categories on category_to_type.category_id = tour_categories.gro
 WHERE tour_types.language_key = $lang AND  tour_categories.language_key = $lang AND tour_category_id = $categ_id ORDER BY `index` ASC";
     $result = mysqli_query($conn, $sql);
 
-    $tour_categories = array();
+    $tour_categories = [];
 
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {
@@ -101,7 +101,7 @@ WHERE tour_types.language_key = $lang_key AND  tour_categories.language_key = $l
 
     $result = mysqli_query($conn, $sql);
 
-    $tour_categories = array();
+    $tour_categories = [];
 
     $i = 0;
     while ($row = mysqli_fetch_assoc($result)) {

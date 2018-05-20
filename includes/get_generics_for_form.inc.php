@@ -1,6 +1,6 @@
 <?php
 include "dbc.inc.php";
-$gens= array();
+$gens= [];
 
 $sql = "SELECT * FROM generic_page_content tr GROUP BY keyword";
 $result_sql = mysqli_query($conn, $sql);

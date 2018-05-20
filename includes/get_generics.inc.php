@@ -1,6 +1,6 @@
 <?php
 include "dbc.inc.php";
-$generics = array();
+$generics = [];
 
 $sql = "SELECT * FROM generic_page_content ORDER BY keyword";
 $r = mysqli_query($conn, $sql);
