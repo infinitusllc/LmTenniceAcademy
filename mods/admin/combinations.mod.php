@@ -17,7 +17,7 @@
             $option = $_GET['option'];
         }
 
-        $options_links_array = [];
+        $options_links_array = array();
         $options_links_array['currency'] = "<option value=\"currency\"> ვალუტა </option>";
         $options_links_array['food_options'] = "<option value=\"food_options\"> კვება </option>";
         $options_links_array['countries'] = "<option value=\"countries\"> ქვეყნები </option>";

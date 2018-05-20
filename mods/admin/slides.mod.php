@@ -48,9 +48,9 @@
                     break;
             }
         }
-        include "includes/slides.inc.php";
+        require_once "includes/slides.inc.php";
         $change = false;
-        $s = [];
+        $s = array();
         if (isset($_GET['keyword'])) {
             $change = true;
         }
@@ -79,7 +79,8 @@
             foreach ($languages as $language) {
                 $content = getTourContent($id, $language['keyword']);
                 if ($change) {
-                    $s = getSlide($_GET['keyword'], $language['keyword'])[0];
+                    $s = getSlide($_GET['keyword'], $language['keyword']);
+                    $s = var_dump($s[0]);
                     ?><a href="admin.php?tab=slides">ახლის შექმნა</a>
                     <input type="hidden" value="true" name="is_change">
                 <? } else {

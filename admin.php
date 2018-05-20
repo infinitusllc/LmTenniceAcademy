@@ -1,6 +1,7 @@
 <head>
     <title> ადმინის გვერდი </title>
     <script src="//cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
     <link rel="stylesheet" type="text/css" href="css/adminStyle.css">
 </head>
@@ -21,12 +22,14 @@
 
     session_start();
     $user = $_SESSION['user'];
-    
-    if($user['is_admin'] != 1) {
-        header("Location: index.php");
-        exit();    
-    }
-    
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+//    if($user['is_admin'] != 1) {
+//        header("Location: index.php");
+//        exit();
+//    }
+//
     $tab = "tours";
     if (isset($_GET['tab']))
         $tab = $_GET['tab'];
