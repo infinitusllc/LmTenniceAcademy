@@ -6,10 +6,6 @@ if(isset($_POST['submit'])) {
 
     include "languages.inc.php";
     $isChange = mysqli_real_escape_string($conn, $_POST["change"]);
-    $display = 0;
-    if (isset($_POST['display']) and $_POST['display'] == 'true') {
-        $display = 1;
-    }
 
     $empty = 1;
     foreach ($languages as $language) {
@@ -30,7 +26,6 @@ if(isset($_POST['submit'])) {
         $keyword = mysqli_real_escape_string($conn, $_POST["key"]);
         $sql = "DELETE FROM generic_page_content WHERE keyword = $keyword";
         $result = mysqli_query($conn, $sql);
-        echo $sql."<br>";
     }
 
     if ($conn) {
@@ -39,41 +34,32 @@ if(isset($_POST['submit'])) {
         $first = 1;
         $id = -1;
         $genpage_keyword = mysqli_real_escape_string($conn, $_POST["genpage_keyword"]);
-        $type = mysqli_real_escape_string($conn, $_POST["genpage_type"]);
         foreach ($languages as $language) {
             $suffix = $language['keyword'];
             $genpage_name = mysqli_real_escape_string($conn, $_POST["genpage_name_$suffix"]);
             $genpage_intro = mysqli_real_escape_string($conn, $_POST["genpage_intro_$suffix"]);
             $genpage_description = mysqli_real_escape_string($conn, $_POST["genpage_description_$suffix"]);
+            $type = mysqli_real_escape_string($conn, $_POST["genpage_type_$suffix"]);
 
             if (!empty($genpage_name) && !empty($genpage_description)) {
                 $lang_key = $language['id'];
                 if ($first == 1) {
-                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword, show_in_slide) VALUES 
-                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword', $display)";
+                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, keyword) VALUES 
+                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', '$genpage_keyword')";
                     $result = mysqli_query($conn, $sql);
-
                     $sql = "SELECT id FROM generic_page_content WHERE content = '$genpage_description' ORDER BY id DESC";
                     $result = mysqli_query($conn, $sql);
-
                     $id = mysqli_fetch_assoc($result)['id'];
                     $sql = "UPDATE generic_page_content SET group_id = $id WHERE id = $id";
                     $result = mysqli_query($conn, $sql);
-
                     $first = 0;
                 } else {
-                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword,show_in_slide) VALUES 
-                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword', $display)";
+                    $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword) VALUES 
+                                                    ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword')";
                     mysqli_query($conn, $sql);
                 }
             }
         }
-
-        if ($_FILES['fileToUpload']['name'] == null) {
-            header("Location: ../admin.php?tab=generic&message=success");
-            exit();
-        }
-        $sql_delete = "DELETE FROM generic_page_content WHERE group_id = $id";
 
         // adding images
         $target_dir = "../images/generic_images/";
@@ -89,54 +75,38 @@ if(isset($_POST['submit'])) {
             } else {
                 echo "File is not an image.";
                 $uploadOk = 0;
-                mysqli_query($conn, $sql_delete);
-                header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
-                exit();
             }
         }
         // Check file size
-        if ($_FILES["fileToUpload"]["size"] > 800000000) {
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
             echo "Sorry, your file is too large.";
             $uploadOk = 0;
-            mysqli_query($conn, $sql_delete);
-            header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
-            exit();
         }
         // Allow certain file formats
         if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif") {
             echo "only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
-            mysqli_query($conn, $sql_delete);
-            header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
-            exit();
         }
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
             echo "Sorry, your file was not uploaded.";
-            mysqli_query($conn, $sql_delete);
-            header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
-            exit();
             // if everything is ok, try to upload file
         } else {
             $temp = explode(".", $_FILES["fileToUpload"]["name"]);
             $newfilename = $id . '.' . end($temp);
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/generic_images/" . $newfilename)) {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/tour_images/" . $newfilename)) {
                 echo "The file " . $newfilename . " has been uploaded."."</br>";
                 $url = 'images/generic_images/' . $newfilename;
                 $sql = "UPDATE generic_page_content SET image_url = '$url' WHERE group_id = $id";
-                if (mysqli_query($conn, $sql)) {
-                    header("Location: ../admin.php?tab=generic&message=success");
-                    exit();
-                }
+                mysqli_query($conn, $sql);
             } else {
-                mysqli_query($conn, $sql_delete);
-                header("Location: ../admin.php?tab=generic&message=imageNotUploaded");
-                exit();
+                echo "Sorry, there was an error uploading your file.";
             }
         }
 
         //  /adding an image
+
         header("Location: ../admin.php?tab=generic&message=success");
         exit();
     }

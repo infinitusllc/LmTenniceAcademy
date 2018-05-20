@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_GET['keyword'])) {
-    header("Location: ../admin.php?tab=slide&message=error0");
+    header("Location: ../admin.php?tab=slides&message=error0");
     exit();
 }
 
@@ -19,20 +19,20 @@ if($result = mysqli_query($conn, $sql)) {
         $sql = "DELETE FROM slide WHERE id = $id";
         if (mysqli_query($conn, $sql)) {
             //redirect, success
-            header("Location: ../admin.php?tab=slide&message=success");
+            header("Location: ../admin.php?tab=slides&message=success");
             exit();
         } else {
             //redirect, error
-            header("Location: ../admin.php?tab=slide&message=error1");
+            header("Location: ../admin.php?tab=slides&message=error1");
             exit();
         }
     } else {
         //redirect, error
-        header("Location: ../admin.php?tab=slide&message=error2");
+        header("Location: ../admin.php?tab=slides&message=error2");
         exit();
     }
 } else {
     //redirect, error
-    header("Location: ../admin.php?tab=slide&message=error3");
+    header("Location: ../admin.php?tab=slides&message=error3");
     exit();
 }

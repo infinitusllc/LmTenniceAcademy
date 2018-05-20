@@ -138,11 +138,19 @@
 					foreach ($tournaments as $tournament) {
 				?>
 					<div class="owl-item">
+<<<<<<< HEAD
 						<div class="box-text1">
 							<span class="text-white1">
 								<?php echo $tournament['intro']; ?>
 							</span>
 							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $tournament['keyword'];?>">&#8212; სრულად ნახვა </a>
+=======
+						<div class="box-text">
+							<span class="text-white">
+								<?php echo $tournament['intro']; ?>
+							</span>
+							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $tournament['keyword'];?>">&#8212; სრულად ნახვა </a>
+>>>>>>> 0e20e376aac713b8b1e353b06dc53684aca581aa
 						</div>
 					</div>
 				<?php } ?>
@@ -173,7 +181,11 @@
 							<span class="text-white">
 								<?php echo $news['intro']; ?>
 							</span>
+<<<<<<< HEAD
 							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $news['keyword'];?>">&#8212; სრულად ნახვა </a>
+=======
+							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $news['keyword'];?>">&#8212; სრულად ნახვა </a>
+>>>>>>> 0e20e376aac713b8b1e353b06dc53684aca581aa
 						</div>
 					</div>
 				<?php } ?>

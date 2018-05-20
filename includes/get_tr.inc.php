@@ -1,6 +1,6 @@
 <?php
     include "dbc.inc.php";
-    $translations = [];
+    $translations = array();
 
     $sql_translations = "SELECT * FROM translations tr INNER JOIN languages lg ON tr.language_key = lg.id ORDER BY title";
     $result_sql = mysqli_query($conn, $sql_translations);

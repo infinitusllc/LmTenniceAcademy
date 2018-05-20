@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
                     //Log in the admin here
                     $_SESSION['logged'] = true;
 
-                    $user = [];
+                    $user = array();
 
                     $user['name'] = $row['first_name']." ".$row['last_name'];
                     $user['first_name'] = $row['first_name'];
@@ -81,7 +81,7 @@ if(isset($_POST['submit'])){
             if ($hashedPassCheck == true) {
                 $_SESSION['logged'] = true;
 
-                $user = [];
+                $user = array();
 
                 $user['name'] = $row['first_name']." ".$row['last_name'];
                 $user['first_name'] = $row['first_name'];
