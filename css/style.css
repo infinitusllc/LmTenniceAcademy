@@ -13137,13 +13137,15 @@ html:not(.lt-ie10) .not-animated {
     .btn-default:before {
         content: "";
         position: absolute;
-        left: 11px;
-        bottom: 0px;
+        left: 0px;
+        bottom: -3px;
         width: 0px;
-        height: 29px;
+        height: 30px;
         z-index: -1;
-        transition: .3s all ease;
+        transition: .3s all cubic-bezier(0, 0, 0.02, 0.99);
         background: #efefef;
+        /* top: -5px; */
+        margin: 0px 3px 0px 3px;
     }
 
     .btn-default:hover, .btn-default:active {
@@ -15516,7 +15518,7 @@ div .rd-mailform1 .mfControls {
     display: none;
     /* margin-top: 64px; */
     width: 100%;
-    -webkit-tap-highlight-color: transparent;
+    /* -webkit-tap-highlight-color: transparent; */
     /* position relative and z-index fix webkit rendering fonts issue */
     position: relative;
     z-index: 1;
@@ -15527,9 +15529,9 @@ div .rd-mailform1 .mfControls {
         height: 100%;
         content: "";
         position: absolute;
-        background: #000;
+        /*background: #000;*/
         left: 0;
-        opacity: 0.4;
+        /*opacity: 0.4;*/
         top: 0;
         z-index: 1;
     }
@@ -15659,7 +15661,7 @@ div .rd-mailform1 .mfControls {
     min-height: 1px;
     float: left;
     -webkit-backface-visibility: hidden;
-    -webkit-tap-highlight-color: transparent;
+    /* -webkit-tap-highlight-color: transparent; */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;

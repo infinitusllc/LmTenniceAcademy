@@ -30,12 +30,6 @@
         if (session_id() == '' || !isset($_SESSION)) // session isn't started
             session_start();
 
-        $logged = $_SESSION['admin'];
-        if (!isset($logged) || $logged == false) {
-            header("Location: ind.php");
-            exit();
-        }
-
         include "includes/tr.inc.php";
         $lang = "geo";
         if (isset($_GET['lang'])){
@@ -99,8 +93,9 @@
 	</section>
 	<!-- End Welcome -->
 
-	<!-- Carousel -->
+	<!-- Carousels -->
 	<section class="well-sm">
+		<!--================================ events ===============================-->
 		<div class="container mini-slide">
 			<h2>რაც უნდა იცოდე..</h2>
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
@@ -118,7 +113,7 @@
 							<span class="text-white">
 								<?php echo $event['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
@@ -132,7 +127,7 @@
 		</div>
 
 
-        <!--================================ პირველი კარუსელი ===============================-->
+        <!--================================ tournaments ===============================-->
         <div class="container mini-slide">
 			<h2>ტურნირები</h2>
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
@@ -143,11 +138,11 @@
 					foreach ($tournaments as $tournament) {
 				?>
 					<div class="owl-item">
-						<div class="box-text">
-							<span class="text-white">
+						<div class="box-text1">
+							<span class="text-white1">
 								<?php echo $tournament['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $tournament['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $tournament['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
@@ -160,7 +155,7 @@
 			<div class="clear"></div>
 		</div>
 
-<!--================================ პირველი კარუსელი ===============================-->
+		<!--================================ news ===============================-->
         <div class="container mini-slide">
 			<h2>სიახლე</h2>
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
@@ -178,7 +173,7 @@
 							<span class="text-white">
 								<?php echo $news['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $news['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $news['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
@@ -190,11 +185,8 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-
-
     </section>
-	<!-- End Carousel -->
-
+	<!-- End Carousels -->
 	
 	<!-- LM Profile -->
 	<section class="well-welcome" id="exLmProfile">
@@ -207,7 +199,6 @@
 		</div>
 	</section>
 	<!-- LM Profile -->
-
 
 	<!--========================================================
     FOOTER
