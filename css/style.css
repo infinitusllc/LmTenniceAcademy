@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*
 * @package      Style
 * @description  This package holds all common style declarations
@@ -13149,7 +13149,7 @@ html:not(.lt-ie10) .not-animated {
     }
 
     .btn-default:hover, .btn-default:active {
-        color: #232323;
+        color: #d35220;
     }
 
         .btn-default:hover:before, .btn-default:active:before {
@@ -14803,11 +14803,11 @@ div .rd-mailform1 .mfControls {
             }
 
     .responsive-tabs-variant-2 .btn-default {
-        color: #000;
+        color: #d35220;
     }
 
         .responsive-tabs-variant-2 .btn-default:hover {
-            color: white;
+            color: #d35220;
         }
 
     .responsive-tabs-variant-2 .resp-accordion {
@@ -15598,7 +15598,7 @@ div .rd-mailform1 .mfControls {
 }
 
     .owl-carousel .owl-item .btn:hover {
-        color: #fff;
+        color: #d35220;
     }
 
         .owl-carousel .owl-item .btn:hover:before {
