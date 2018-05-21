@@ -123,7 +123,7 @@
                     <textarea name="tour_intro_<?php echo $language['keyword']; ?>" form="tour-form" class="textInput htmlClass"
                               id="tour_intro_<?php echo $language['keyword']; ?>"><?php echo $content['tour_intro'];?></textarea> </br>
                     <script>
-                        CKEDITOR.replace( "tour_intro_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "tour_intro_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?>  );
                     </script>
                 </div>
 
@@ -132,7 +132,7 @@
                     <textarea name="tour_description_<?php echo $language['keyword']; ?>" form="tour-form"
                               class="textInput htmlClass" placeholder="*"><?php echo $content['tour_description'];?></textarea> </br>
                     <script>
-                        CKEDITOR.replace( "tour_description_<?php echo $language['keyword']; ?>" );
+                        CKEDITOR.replace( "tour_description_<?php echo $language['keyword']; ?>", <?php include "mods/CKfinder.mod.php"; ?>  );
                     </script>
                 </div>
 
