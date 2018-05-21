@@ -83,7 +83,7 @@ if (count($files) > 0) {
             <!-- RD Navbar Brand -->
             <div class="rd-navbar-brand">
                 <a href="index.php" class="brand-name primary-color">
-                   &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">travel operator</span>
+                   &#95;world<span class="text-primary">around</span><span class="brand-slogan text-regular">Leila Meskhi Tennis Academy</span>
                </a>
            </div>
            <!-- END RD Navbar Brand -->

@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
     echo $sql;
     if (mysqli_query($conn, $sql)) {
 //        $to = "turdzeladze@gmail.com, somebodyelse@example.com";
-//        $subject = "toptravel email";
+//        $subject = "Leila Meskhi Tennis Academy email";
 //
 //        $message = "აიჯფნდიასნჯლცვკნეაფვჯნაზდკლჯ დსნივჯ ";
 //

@@ -93,8 +93,9 @@
 	</section>
 	<!-- End Welcome -->
 
-	<!-- Carousel -->
+	<!-- Carousels -->
 	<section class="well-sm">
+		<!--================================ events ===============================-->
 		<div class="container mini-slide">
 			<h2>რაც უნდა იცოდე..</h2>
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
@@ -112,7 +113,7 @@
 							<span class="text-white">
 								<?php echo $event['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $event['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
@@ -126,7 +127,7 @@
 		</div>
 
 
-        <!--================================ პირველი კარუსელი ===============================-->
+        <!--================================ tournaments ===============================-->
         <div class="container mini-slide">
 			<h2>ტურნირები</h2>
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
@@ -141,7 +142,7 @@
 							<span class="text-white">
 								<?php echo $tournament['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $tournament['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $tournament['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
@@ -154,7 +155,7 @@
 			<div class="clear"></div>
 		</div>
 
-<!--================================ პირველი კარუსელი ===============================-->
+		<!--================================ news ===============================-->
         <div class="container mini-slide">
 			<h2>სიახლე</h2>
 			<div class="owl-carousel" data-nav="true" data-items="1" data-loop="false">
@@ -172,7 +173,7 @@
 							<span class="text-white">
 								<?php echo $news['intro']; ?>
 							</span>
-							<a class="btn btn-xs btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $news['keyword'];?>">&#8212; სრულად ნახვა </a>
+							<a class="btn btn-default" href="generic_page.php?lang=<?php echo $lang_key; ?>&keyword=<?php echo $news['keyword'];?>">&#8212; სრულად ნახვა </a>
 						</div>
 					</div>
 				<?php } ?>
@@ -184,11 +185,8 @@
 			</div>
 			<div class="clear"></div>
 		</div>
-
-
     </section>
 	<!-- End Carousel -->
-
 	
 	<!-- LM Profile -->
 	<section class="well-welcome" id="exLmProfile">
@@ -201,7 +199,6 @@
 		</div>
 	</section>
 	<!-- LM Profile -->
-
 
 	<!--========================================================
     FOOTER

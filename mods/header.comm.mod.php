@@ -57,7 +57,7 @@ include "login_form.mod.php";
                                 $children = getHeadersByParent($lang_key, $parent_id);
                                 foreach ($children as $child) { ?>
                                     <div>
-										<a href="<?php echo $child['url']; ?>"><?php echo $child['name']; ?> &#8599;</a>
+										<a href="<?php echo $child['url']; ?>"><?php echo $child['name']; ?>  &#8599;</a>
 									</div>
                                     <?php
                                 }
@@ -80,11 +80,11 @@ include "login_form.mod.php";
                 <div class="dropdown">
                     <button class="dropbtn"> <span class="material-icons-account_box"></span></button>
                     <div class="dropdown-content1">
-                        <a href="profile.php"><?php echo $labels['mm_sub_profile']; ?> &#8599;</a>
+                        <a href="profile.php"><?php echo $labels['mm_sub_profile']; ?>  &#8599;</a>
                         <?php if ($_SESSION['user']['is_admin'] == 1) { ?>
-                            <a href="admin.php"><?php echo $labels['mm_sub_admin']; ?> &#8599;</a>
+                            <a href="admin.php"><?php echo $labels['mm_sub_admin']; ?>  &#8599;</a>
                         <?php } ?>
-                        <a href="includes/logout.inc.php"><?php echo $labels['mm_sub_exit']; ?> &#8599;</a>
+                        <a href="includes/logout.inc.php"><?php echo $labels['mm_sub_exit']; ?>  &#8599;</a>
                     </div>
                 </div>
             <?php } else { ?>
