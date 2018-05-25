@@ -212,16 +212,16 @@ class CKFinder extends Container implements HttpKernelInterface
     /**
      * Checks authentication.
      */
-//    public function checkAuth()
-//    {
-//        /* @var $authentication \CKSource\CKFinder\Authentication\AuthenticationInterface */
-//        $authentication = $this['authentication'];
-//
-//        if (!$authentication->authenticate()) {
-//            ini_set('display_errors', 0);
-//            throw new CKFinderException('CKFinder is disabled', Error::CONNECTOR_DISABLED);
-//        }
-//    }
+    public function checkAuth()
+    {
+        /* @var $authentication \CKSource\CKFinder\Authentication\AuthenticationInterface */
+        $authentication = $this['authentication'];
+
+        if (!$authentication->authenticate()) {
+            ini_set('display_errors', 0);
+            throw new CKFinderException('CKFinder is disabled', Error::CONNECTOR_DISABLED);
+        }
+    }
 
     /**
      * Validates the CSRF token.
