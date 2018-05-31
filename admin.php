@@ -1,6 +1,7 @@
 <head>
     <title> ადმინის გვერდი </title>
     <script src="//cdn.ckeditor.com/4.9.2/full/ckeditor.js"></script>
+    <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
     <link rel="stylesheet" type="text/css" href="css/adminStyle.css">
 </head>
@@ -20,6 +21,11 @@
 <?php
 
     session_start();
+
+    $_SESSION['KCFINDER'] = array(
+        'disabled' => false
+    );
+
     $user = $_SESSION['user'];
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
