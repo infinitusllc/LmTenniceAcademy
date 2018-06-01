@@ -1,6 +1,7 @@
 <head>
     <title> ადმინის გვერდი </title>
-    <script src="//cdn.ckeditor.com/4.9.2/full/ckeditor.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="/ckeditor/ckfinder/ckfinder.js"></script>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
     <link rel="stylesheet" type="text/css" href="css/adminStyle.css">
@@ -22,19 +23,8 @@
 
     session_start();
 
-    $_SESSION['KCFINDER'] = array(
-        'disabled' => false
-    );
-
     $user = $_SESSION['user'];
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-//    if($user['is_admin'] != 1) {
-//        header("Location: index.php");
-//        exit();
-//    }
-//
+
     $tab = "tours";
     if (isset($_GET['tab']))
         $tab = $_GET['tab'];

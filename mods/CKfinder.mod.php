@@ -1,8 +1,8 @@
 {
-    filebrowserBrowseUrl : 'http://localhost/LmTenniceAcademy/ckfinder/ckfinder.html',
-    filebrowserImageBrowseUrl : 'http://localhost/LmTenniceAcademy/ckfinder/ckfinder.html?Type=Images',
-    filebrowserFlashBrowseUrl : 'http://localhost/LmTenniceAcademy/ckfinder/ckfinder.html?Type=Flash',
-    filebrowserUploadUrl : 'http://localhost/LmTenniceAcademy/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
-    filebrowserImageUploadUrl : 'http://localhost/LmTenniceAcademy/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
-    filebrowserFlashUploadUrl : 'http://localhost/LmTenniceAcademy/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+    filebrowserBrowseUrl : 'localhost/ckeditor/ckfinder/ckfinder.html',
+    filebrowserImageBrowseUrl : 'localhost/ckeditor/ckfinder/ckfinder.html?Type=Images',
+    filebrowserFlashBrowseUrl : 'localhost/ckeditor/ckfinder/ckfinder.html?Type=Flash',
+    filebrowserUploadUrl : 'localhost/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+    filebrowserImageUploadUrl : 'localhost/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+    filebrowserFlashUploadUrl : 'localhost/ckeditor/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
 }

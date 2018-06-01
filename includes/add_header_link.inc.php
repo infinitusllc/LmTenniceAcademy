@@ -1,79 +1,97 @@
 <?php
 
-if (isset($_POST['submit'])) {
-    include "dbc.inc.php";
+    if (isset($_POST['submit'])) {
+        include "dbc.inc.php";
 
-    $keyword = mysqli_real_escape_string($conn, $_POST["keyword"]);
-    $url = mysqli_real_escape_string($conn, $_POST["url"]);
-    $parent_id = mysqli_real_escape_string($conn, $_POST["parent_id"]);
+        $change = mysqli_real_escape_string($conn, $_POST['change']);
 
-    $parent_id = (int)$parent_id;
+        if ($change == '1') {
+            $id = mysqli_real_escape_string($conn, $_POST["header_id"]);
+            $sql1 = "DELETE FROM header_links WHERE id = $id";
+            $sql2 = "DELETE FROM header_content WHERE group_id = $id";
+            mysqli_query($conn, $sql1);
+            mysqli_query($conn, $sql2);
+        }
 
-    //check if keyword is not empty
-    if (empty($keyword)) {
-        header("Location: ../admin.php?tab=header&msg=1");
-        exit();
-    }
+        $keyword = mysqli_real_escape_string($conn, $_POST["keyword"]);
+        $url = mysqli_real_escape_string($conn, $_POST["url"]);
+        $parent_id = mysqli_real_escape_string($conn, $_POST["parent_id"]);
+        $parent_id = (int)$parent_id;
+        $weight = mysqli_real_escape_string($conn, $_POST['weight']);
+        $weight = (int)$weight;
 
-    //check if parent id is int
-    if (!empty($parent_id) and !is_int($parent_id)) {
-        header("Location: ../admin.php?tab=header&msg=2");
-        exit();
-    }
+        //check if keyword is not empty
+        if (empty($keyword)) {
+            header("Location: ../admin.php?tab=header&msg=1");
+            exit();
+        }
 
-    //check if keyword is unique
-    $sql = "SELECT * FROM header_links WHERE keyword = '$keyword'";
-    $result = mysqli_query($conn, $sql);
-    if (mysqli_num_rows($result) > 0) {
-        header("Location: ../admin.php?tab=header&msg=3");
-        exit();
-    }
+        //check if parent id is int
+        if (!empty($parent_id) and !is_int($parent_id)) {
+            header("Location: ../admin.php?tab=header&msg=2");
+            exit();
+        }
 
-    $sql = "INSERT INTO header_links (url, keyword, `level`) VALUES ('$url', '$keyword', 0)";
-    if (!empty($parent_id))
-        $sql = "INSERT INTO header_links (parent_id, url, keyword, `level`) VALUES ($parent_id, '$url', '$keyword', 0)";
-
-    if (mysqli_query($conn, $sql)) {
-        //get the id of the link
-        $sql = "SELECT id FROM header_links WHERE keyword = '$keyword'";
+        //check if keyword is unique
+        $sql = "SELECT * FROM header_links WHERE keyword = '$keyword'";
         $result = mysqli_query($conn, $sql);
-        $id = mysqli_fetch_assoc($result)['id'];
-
-        include "languages.inc.php";
-        foreach ($languages as $language) { //insert into header_content corresponding name and description
-            $lang = $language['keyword'];
-            $lang_key = $language['id'];
-            $name = mysqli_real_escape_string($conn, $_POST['name_'.$lang]);
-            $desc = mysqli_real_escape_string($conn, $_POST['description_'.$lang]);
-
-            echo $name." ".$desc;
-            $sql = "INSERT INTO header_content (group_id, `name`, description, lang_key) VALUES ($id, '$name', '$desc', $lang_key)";
-            echo $sql;
-            mysqli_query($conn, $sql);
+        if (mysqli_num_rows($result) > 0) {
+            header("Location: ../admin.php?tab=header&msg=3");
+            exit();
         }
 
-        if (!empty($parent_id)) {
-            $sql = "UPDATE header_links SET is_parent = 1 WHERE id = $parent_id";
-            mysqli_query($conn, $sql);
+        $sql = "INSERT INTO header_links (url, keyword, `level`, weight) VALUES ('$url', '$keyword', 0, $weight)";
+        if ($change == '1' and !empty($parent_id)) {
+            $id = mysqli_real_escape_string($conn, $_POST["header_id"]);
+            $sql = "INSERT INTO header_links (id, parent_id, url, keyword, `level`, weight) VALUES ($id, $parent_id, '$url', '$keyword', 0, $weight)";
+        } else if (!empty($parent_id)) {
+            $sql = "INSERT INTO header_links (parent_id, url, keyword, `level`, weight) VALUES ($parent_id, '$url', '$keyword', 0, $weight)";
+        } else if ($change == '1') {
+            $id = mysqli_real_escape_string($conn, $_POST["header_id"]);
+            $sql = "INSERT INTO header_links (id, url, keyword, `level`, weight) VALUES ($id, '$url', '$keyword', 0, $weight)";
+        }
 
-            $sql = "SELECT `level` FROM header_links WHERE id = $parent_id";
+        if (mysqli_query($conn, $sql)) {
+            //get the id of the link
+            $sql = "SELECT id FROM header_links WHERE keyword = '$keyword'";
             $result = mysqli_query($conn, $sql);
-            $level = mysqli_fetch_assoc($result)['level'];
+            $id = mysqli_fetch_assoc($result)['id'];
 
-            $level = (int)$level + 1;
+            include "languages.inc.php";
+            foreach ($languages as $language) { //insert into header_content corresponding name and description
+                $lang = $language['keyword'];
+                $lang_key = $language['id'];
+                $name = mysqli_real_escape_string($conn, $_POST['name_'.$lang]);
+                $desc = mysqli_real_escape_string($conn, $_POST['description_'.$lang]);
 
-            $sql = "UPDATE header_links SET `level` = $level WHERE id = $id";
-            mysqli_query($conn, $sql);
+                echo $name." ".$desc;
+                $sql = "INSERT INTO header_content (group_id, `name`, description, lang_key) VALUES ($id, '$name', '$desc', $lang_key)";
+                echo $sql;
+                mysqli_query($conn, $sql);
+            }
+
+            if (!empty($parent_id)) {
+                $sql = "UPDATE header_links SET is_parent = 1 WHERE id = $parent_id";
+                mysqli_query($conn, $sql);
+
+                $sql = "SELECT `level` FROM header_links WHERE id = $parent_id";
+                $result = mysqli_query($conn, $sql);
+                $level = mysqli_fetch_assoc($result)['level'];
+
+                $level = (int)$level + 1;
+
+                $sql = "UPDATE header_links SET `level` = $level WHERE id = $id";
+                mysqli_query($conn, $sql);
+            }
+
+            header("Location: ../admin.php?tab=header&msg=s");
+            exit();
         }
 
-        header("Location: ../admin.php?tab=header&msg=s");
+        header("Location: ../admin.php?tab=header&msg=4");
+        exit();
+
+    } else {
+        header("Location: ../admin.php?tab=header");
         exit();
     }
-
-    header("Location: ../admin.php?tab=header&msg=4");
-    exit();
-
-} else {
-    header("Location: ../admin.php?tab=header");
-    exit();
-}

@@ -2,7 +2,6 @@
     <h2> ჰედერის ლინკის შეცვლა </h2>
 
     <script type="text/javascript">
-
         function openTab(evt, tabName, tabContent, tabLinks) {
             // Declare all variables
             var i, tabcontent, tablinks;
@@ -23,20 +22,6 @@
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
         }
-
-        /*
-            checks if the username contains illegal characters
-            or is empty
-        */
-        function checkName(id){
-            var name = document.getElementById(id).value;
-            var bob = /^[-_!@#$%^&*()+=,.;'/"}{0-9 ]+$/;
-            if(bob.test(name)) {
-                document.getElementById("post_" + id).innerHTML = "სახელი არ უნდა შეიძლება, იყოს ცარიელი ან შედგებოდეს არავალიდური სიმბოლოებისგან!";
-            } else {
-                document.getElementById("post_" + id).innerHTML = "";
-            }
-        }
     </script>
 
     <!-- after the user submits the form, he's returned back to the same page, with the corresponding message -->
@@ -50,11 +35,28 @@
                 ?>  <p> ოპერაციის შესრულებისას მოხდა შეცდომა </p>  <?php
                 break;
         }
-    }  ?>
+    }
+
+    if (isset($_GET['id'])) {
+        ?> <a href="?tab=header"> <p> ახლის შექმნა </p> </a> <?php
+    }
+    ?>
 
     <form id="header-form" action="includes/add_header_link.inc.php" method="post" accept-charset="UTF-8" enctype="multipart/form-data">
         <ul class="tablinks">
             <?php
+            $id = null;
+            $header = [];
+            require_once "includes/get_headers.inc.php";
+            if (isset($_GET['id'])) {
+                $id = $_GET['id']; ?>
+                <input type="hidden" name="change" value="1">
+                <input type="hidden" name="header_id" value="<?php echo $id; ?>">
+                <?php
+            } else {
+                ?> <input type="hidden" name="change" value="0"> <?php
+            }
+
             include "includes/languages.inc.php";
             foreach ($languages as $language) { ?>
                 <li class="tablinks1"><a class="tablinks1" onclick="openTab(event, 'h_main_tr_<?php echo $language['keyword']; ?>',  'tabcontent', 'tablinks1')"> <?php echo $language['name']; ?> </a></li>
@@ -63,15 +65,18 @@
 
         <?php
         include "includes/languages.inc.php";
-        foreach ($languages as $language) { ?>
+        foreach ($languages as $language) {
+            if (isset($id)) {
+                $header = getHeadersByID($language['id'], $id);
+            } ?>
             <div id="h_main_tr_<?php echo $language['keyword']; ?>" class="tabcontent" <?php if ($language['keyword'] == 'geo') echo 'style = "display: block"'; ?>>
                 <h3> ენა: <?php echo $language['name'] ?> </h3>
                 <div>
                     <p> სახელი: </p>
-                    <input name="name_<?php echo $language['keyword']; ?>" class="textInput"> </br>
+                    <input name="name_<?php echo $language['keyword']; ?>" class="textInput" value="<?php if(isset($id)) { echo $header['name']; } ?>"> </br>
 
                     <p> აღწერა: </p>
-                    <input name="description_<?php echo $language['keyword']; ?>" class="textInput"> <br>
+                    <input name="description_<?php echo $language['keyword']; ?>" class="textInput" value="<?php if(isset($id)) { echo $header['description']; } ?>"> <br>
                 </div>
             </div>
         <?php } ?>
@@ -80,18 +85,18 @@
             <div>
                 <h5> აუცილებელია ქივორდის შეყვანა </h5>
                 <p> ქივორდი: </p>
-                <input name="keyword" class="textInput"> <br>
+                <input name="keyword" class="textInput" value="<?php if(isset($id)) { echo $header['keyword']; } ?>"> <br>
                 <p> ლინკი: </p>
-                <input name="url" class="textInput"> <br>
+                <input name="url" class="textInput" value="<?php if(isset($id)) { echo $header['url']; } ?>"> <br>
                 <p> მშობლის id: </p>
-                <input name="parent_id" class="textInput"> <br>
-                <!--                <p> დონე: </p>-->
-                <!--                <input name="level" class="textInput"> <br> -->
+                <input name="parent_id" class="textInput" value="<?php if(isset($id)) { echo $header['parent_id']; } ?>"> <br>
+                <p> წონა: </p>
+                <input name="weight" class="textInput" value="<?php if(isset($id)) { echo $header['weight']; } ?>"> <br>
             </div>
         </div>
         <div>
             <button onclick="document.getElementById('header-form').submit();" type="submit" class="sub button"
-                    name="submit" value="company"> შექმნა </button>
+                    name="submit" value="company"> დამახსოვრება </button>
         </div>
     </form>
     <div name="existing-headers">
@@ -100,17 +105,18 @@
         <?php
 
         include_once "includes/get_headers.inc.php";
-        $slides = getHeaders();
+        $headers = getHeaders();
         $i = 0;
-        foreach ($slides as $slide) { ?>
+        foreach ($headers as $header) { ?>
             <form name="line_<?php echo $i; ?>">
                 <hr>
                 <p>
                     <?php
-                    echo "ქივორდი: ".$slide['keyword']."</br></br>";
-                    echo "ID: ".$slide['id']."</br></br>"; ?>
+                    echo "ქივორდი: ".$header['keyword']."</br></br>";
+                    echo "ID: ".$header['id']."</br></br>"; ?>
                     <br>
-                    <a href="includes/delete_header_link.inc.php?id=<?php echo $slide['id']; ?>"> წაშლა </a>
+                    <a href="?tab=header&id=<?php echo $header['id']; ?>"> შეცვლა </a> <br>
+                    <a href="includes/delete_header_link.inc.php?id=<?php echo $header['id']; ?>"> წაშლა </a>
                 </p>
             </form>
             <?php $i++; } ?>
