@@ -1,6 +1,6 @@
 <?php
     $dbServername = "91.212.213.16";
-    $dbUsername = "leilames";
+    $dbUsername = "leilames_user";
     $dbPassword = "6j1r51WfnT";
     $dbName = "leilames_tennis";
 
