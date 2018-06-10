@@ -52,14 +52,23 @@ if(isset($_POST['submit'])) {
                     $id = mysqli_fetch_assoc($result)['id'];
                     $sql = "UPDATE generic_page_content SET group_id = $id WHERE id = $id";
                     $result = mysqli_query($conn, $sql);
+                    if ($type == 'news' or $type == 'tournament' or $type == 'event') {
+                        $sql = "UPDATE generic_page_content SET show_in_slide = 1 WHERE group_id = $id";
+                        mysqli_query($conn, $sql);
+                    }
                     $first = 0;
                 } else {
                     $sql = "INSERT INTO generic_page_content (title, intro, content, language_key, type, group_id, keyword) VALUES 
                                                     ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword')";
                     mysqli_query($conn, $sql);
+                    if ($type == 'news' or $type == 'tournament' or $type == 'event') {
+                        $sql = "UPDATE generic_page_content SET show_in_slide = 1 WHERE group_id = $id";
+                        mysqli_query($conn, $sql);
+                    }
                 }
             }
         }
+
 
         // adding images
         $target_dir = "../images/generic_images/";
@@ -99,7 +108,12 @@ if(isset($_POST['submit'])) {
                 echo "The file " . $newfilename . " has been uploaded."."</br>";
                 $url = 'images/generic_images/' . $newfilename;
                 $sql = "UPDATE generic_page_content SET image_url = '$url' WHERE group_id = $id";
-                mysqli_query($conn, $sql);
+                if (mysqli_query($conn, $sql)) {
+                    echo "bla";
+                    exit();
+                } else {
+                    echo $sql;
+                }
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
