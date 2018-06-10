@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
 
     if ($isChange == "true") {
         $keyword = mysqli_real_escape_string($conn, $_POST["key"]);
-        $sql = "DELETE FROM generic_page_content WHERE keyword = $keyword";
+        $sql = "DELETE FROM generic_page_content WHERE keyword = '$keyword'";
         $result = mysqli_query($conn, $sql);
     }
 
