@@ -95,7 +95,7 @@ if(isset($_POST['submit'])) {
         } else {
             $temp = explode(".", $_FILES["fileToUpload"]["name"]);
             $newfilename = $id . '.' . end($temp);
-            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/tour_images/" . $newfilename)) {
+            if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "../images/generic_images/" . $newfilename)) {
                 echo "The file " . $newfilename . " has been uploaded."."</br>";
                 $url = 'images/generic_images/' . $newfilename;
                 $sql = "UPDATE generic_page_content SET image_url = '$url' WHERE group_id = $id";
