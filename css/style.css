@@ -16340,3 +16340,10 @@ label span {/* <-- style the artificial checkbox */
 .k-dropdown:hover .k-dropdown-content {
     display: block;
 }
+
+.generic-container {
+    width: 80%;
+    margin-bottom: 50px;
+    border: solid rebeccapurple;
+    padding: 20px;
+}

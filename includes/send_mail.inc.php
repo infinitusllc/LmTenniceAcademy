@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     date_default_timezone_set('Europe/Samara');
     $time = date('c');
 
-    $to = "turdzeladze@gmail.com";
+    $to = "tennisacademy@ymail.com";
     $subject = "message from Leila Meskhi Tennis Academy: ".$subject;
 
     $message = $msg."\n\n\n sent by: ".$e_mail;

@@ -128,6 +128,7 @@
         <?php } ?>
 
         <div>
+            <input type="checkbox" name="show_in_slide" value="true"> გამოჩნდეს სლაიდზე (მხოლოდ news, event და tournament ტიპისთვის)<br><br>
             <p> სურათი: </p>
             <input type="file" name="fileToUpload" id="fileToUpload"> </br>
 

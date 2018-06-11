@@ -62,8 +62,10 @@ if(isset($_POST['submit'])) {
                                                     ('$genpage_name', '$genpage_intro', '$genpage_description', '$lang_key', '$type', $id, '$genpage_keyword')";
                     mysqli_query($conn, $sql);
                     if ($type == 'news' or $type == 'tournament' or $type == 'event') {
-                        $sql = "UPDATE generic_page_content SET show_in_slide = 1 WHERE group_id = $id";
-                        mysqli_query($conn, $sql);
+                        if(isset($_POST['show_in_slide']) && $_POST['show_in_slide'] == 'true') {
+                            $sql = "UPDATE generic_page_content SET show_in_slide = 1 WHERE group_id = $id";
+                            mysqli_query($conn, $sql);
+                        }
                     }
                 }
             }
