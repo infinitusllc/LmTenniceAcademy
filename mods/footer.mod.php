@@ -17,6 +17,7 @@
                     <input name="e_mail" placeholder="ი-მეილი" style="width: 450px;"><br/>
                     <input name="subject" placeholder="საკითხი" style="width: 450px;">
                     <textarea name="review" placeholder="რევიუ" style="width: 450px;height: 100px;">რევიუ</textarea> <br/>
+                    <div class="g-recaptcha" data-sitekey="6LcI9mkUAAAAAED5Ce0pHR0Sl6n_7h9AEai9HC5l"></div>
                     <input type="submit" name="submit" value="რევიუს დატოვება">
                 </form>
                 <!-- REVIEW FORM -->

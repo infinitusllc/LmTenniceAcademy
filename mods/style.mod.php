@@ -14,4 +14,5 @@
 <link rel="stylesheet" href="css/style.css">
 
 <link rel="stylesheet" href="css/lang_geo.css?12345">
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <!--<link rel="stylesheet" href="css/lang_<?php echo $lang ?>.css">-->

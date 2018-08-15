@@ -53,7 +53,8 @@ include "mods/header.comm.mod.php";
 			<input name="e_mail" style="width:20%;" placeholder="ი-მეილი"><br>
 			<input name="subject" style="width:100%;" placeholder="საკითხი"><br>
 			<textarea name="review" style="width:100%;" placeholder="რევიუ"></textarea><br>
-			<input type="submit" name="submit" value="რევიუს დატოვება">
+            <div class="g-recaptcha" data-sitekey="6LcI9mkUAAAAAED5Ce0pHR0Sl6n_7h9AEai9HC5l"></div>
+            <input type="submit" name="submit" value="რევიუს დატოვება">
 		</form>
 	</div>
 </div>
