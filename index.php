@@ -59,6 +59,7 @@
 	<link href='//fonts.googleapis.com/css?family=Lato:400,300,400italic,700,900,100' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/lang_<?php echo $lang ?>.css">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
     <!--[if lt IE 10]>
     <script src="js/html5shiv.min.js"></script>
