@@ -12,12 +12,12 @@
 			<div class="col-md-5">
                 <!-- REVIEW FORM -->
                 <form id="review-form" class="common-style" action="includes/make_review.inc.php" method="post" accept-charset="UTF-8"
-                      style="text-align: left; margin-bottom: 20px; margin-top: 100px">
+                      style="text-align: left; margin-bottom: 20px">
                     <p style="color: darkgray; margin-bottom: 10px;"> <h4>დაგვიტოვეთ რევიუ </h4></p>
                     <input name="e_mail" placeholder="ი-მეილი" style="width: 450px;"><br/>
                     <input name="subject" placeholder="საკითხი" style="width: 450px;">
-                    <textarea name="review" placeholder="რევიუ" style="width: 450px;height: 100px;">რევიუ</textarea> <br/>
-                    <div class="g-recaptcha" data-sitekey="6LcI9mkUAAAAAED5Ce0pHR0Sl6n_7h9AEai9HC5l"></div>
+                    <textarea name="review" placeholder="რევიუ" style="width: 450px;height: 100px;">რევიუ</textarea>
+                    <div class="g-recaptcha" data-sitekey="6LcI9mkUAAAAAED5Ce0pHR0Sl6n_7h9AEai9HC5l" style="display: inline-block; height: auto"></div>
                     <input type="submit" name="submit" value="რევიუს დატოვება">
                 </form>
                 <!-- REVIEW FORM -->

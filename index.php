@@ -76,10 +76,12 @@
 						alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
 			</a>
 		</div>
-		<!--END block for older internet explorer-->
+    </div>
+
+    <!--END block for older internet explorer-->
 		
-		<?php include "mods/header.mod.php"; ?>
-		<?php include "mods/slide_display.mod.php"; ?>
+    <?php include "mods/header.mod.php"; ?>
+    <?php include "mods/slide_display.mod.php"; ?>
     
 	<!-- Welcome -->
 	<section class="well-welcome" id="ex1">
@@ -204,7 +206,6 @@
     FOOTER
     ==========================================================-->
     <?php include "mods/footer.mod.php"; ?>
-    </div>
     <!-- Core Scripts -->
     <script src="js/core.min.js"></script>
     <!-- Additional Functionality Scripts -->

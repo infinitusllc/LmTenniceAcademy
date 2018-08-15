@@ -4,8 +4,6 @@
     <title> Leila Meskhi Tennis Academy </title>
     <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
     <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    <div class="g-recaptcha" data-sitekey="6LcI9mkUAAAAAED5Ce0pHR0Sl6n_7h9AEai9HC5l"></div>
     <?php
         if (session_id() == '' || !isset($_SESSION)) // session isn't started
             session_start();
@@ -57,7 +55,8 @@ include "mods/header.comm.mod.php";
 			<input name="e_mail" style="width:20%;" placeholder="ი-მეილი"><br>
 			<input name="subject" style="width:100%;" placeholder="სათაური"><br>
 			<textarea name="message" style="width:100%;height:250px;" placeholder="შეტყობინება"></textarea><br>
-			<input type="submit" name="submit" value="შეტყობინების გაგზავნა">
+            <div class="g-recaptcha" data-sitekey="6LcI9mkUAAAAAED5Ce0pHR0Sl6n_7h9AEai9HC5l"></div>
+            <input type="submit" name="submit" value="შეტყობინების გაგზავნა">
 		</form>
 	</div>
 </div>

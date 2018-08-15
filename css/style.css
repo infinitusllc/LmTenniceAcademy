@@ -16347,3 +16347,8 @@ label span {/* <-- style the artificial checkbox */
     border: solid rebeccapurple;
     padding: 20px;
 }
+
+#recaptcha_area input[type="text"] {
+    display: inline-block;
+    height: auto;
+}
