@@ -16,7 +16,7 @@
     function getHeadersByLevel($lang_key, $level) {
         include "dbc.inc.php";
 
-        $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and `level` = $level";
+        $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and `level` = $level order by weight desc";
         $result = mysqli_query($conn, $sql);
 
         $r = array();
@@ -55,7 +55,7 @@
     function getHeadersByParent ($lang_key, $parent_id) {
         include "dbc.inc.php";
 
-        $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and parent_id = $parent_id";
+        $sql = "SELECT * FROM header_links INNER JOIN header_content ON id = group_id WHERE lang_key = $lang_key and parent_id = $parent_id order by weight desc";
         $result = mysqli_query($conn, $sql);
 
         $r = array();

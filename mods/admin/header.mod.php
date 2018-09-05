@@ -110,12 +110,14 @@
         foreach ($headers as $header) { ?>
             <form name="line_<?php echo $i; ?>">
                 <hr>
-                <p>
+                <p style="text-align: left;padding-left: 30px;">
                     <?php
-                    echo "ქივორდი: ".$header['keyword']."</br></br>";
-                    echo "ID: ".$header['id']."</br></br>"; ?>
+					echo "<b>წონა</b>: ".$header['weight']." / ";
+                    echo "<b>ქივორდი:</b>: ".$header['keyword']." / ";
+                    echo "<b>დასახელება</b>: ".$header['name']." / ";
+					echo "<b>ID</b>: ".$header['id']; ?>
                     <br>
-                    <a href="?tab=header&id=<?php echo $header['id']; ?>"> შეცვლა </a> <br>
+                    <a href="?tab=header&id=<?php echo $header['id']; ?>"> შეცვლა </a>
                     <a href="includes/delete_header_link.inc.php?id=<?php echo $header['id']; ?>"> წაშლა </a>
                 </p>
             </form>

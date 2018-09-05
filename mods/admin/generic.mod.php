@@ -142,12 +142,12 @@
     include "includes/get_generics_for_form.inc.php";
 
     foreach ($gens as $gen) {
-        echo "<hr> <p> ქივორდი: ".$gen['keyword']."</p>";
-        if (isset($gen['image_url']) && strlen($gen['image_url']) > 0) { ?>
-            <img src="<?php echo $gen['image_url']; ?>" width="50%">
-        <?php } ?>
-        <a href="admin.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> <p> შეცვლა </p> </a>
-        <a href="includes/delete_generic.inc.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> <p> წაშლა </p> </a>
+        echo "<hr> <p> <b>ქივორდი:</b> ".$gen['keyword']."</p>";
+		// aq rom iyos am konkretuli generic monacemis Title qartulad davushvat
+		//echo $generics[$keyword][1]['title']; 
+		?>
+        <a href="admin.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> შეცვლა </a>
+        <a href="includes/delete_generic.inc.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> წაშლა </a>
         <?php
     }
 
