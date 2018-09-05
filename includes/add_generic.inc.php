@@ -110,6 +110,7 @@ if(isset($_POST['submit'])) {
                 echo "The file " . $newfilename . " has been uploaded."."</br>";
                 $url = 'images/generic_images/' . $newfilename;
                 $sql = "UPDATE generic_page_content SET image_url = '$url' WHERE group_id = $id";
+                mysqli_query($conn, $sql);
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }
