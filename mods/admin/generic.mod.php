@@ -143,9 +143,8 @@
 
     foreach ($gens as $gen) {
         echo "<hr> <p> <b>ქივორდი:</b> ".$gen['keyword']."</p>";
-		// aq rom iyos am konkretuli generic monacemis Title qartulad davushvat
-		//echo $generics[$keyword][1]['title']; 
-		?>
+        echo "<p> <b>სათაური:</b> ".$gen['title']."</p>";
+        ?>
         <a href="admin.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> შეცვლა </a>
         <a href="includes/delete_generic.inc.php?tab=generic&keyword=<?php echo $gen['keyword'] ?>"> წაშლა </a>
         <?php
